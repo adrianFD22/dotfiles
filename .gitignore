@@ -1,0 +1,4 @@
+.dotfiles
+.config/qutebrowser/qsettings/*
+.config/nnn/bookmarks/*
+.config/nvim/plugin/*
