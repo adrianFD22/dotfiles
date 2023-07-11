@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Theme
+export NNN_COLORS='#a744b322' NNN_FCOLORS='dfdfdf6c0000df42bbbaba5f'
+
+# Bookmarks
+export NNN_BMS=".:~/.config;n:~/.config/nvim;b:~/.config/bashrc;d:$DOWNLOADS"
+
+# Plugins
+#export NNN_PLUG='s:subshell'
