@@ -93,8 +93,9 @@ config.set('completion.open_categories', ['bookmarks', 'history'])
 search_general = {
         "DEFAULT": "https://duckduckgo.com/?q={}",
         "ddg": "https://duckduckgo.com/?q={}",
-        "google": "https://www.google.com.ar/search?q={}",
-        "wr": "https://www.wordreference.com/es/translation.asp?tranword={}"
+        "g": "https://www.google.com.ar/search?q={}",
+        "wr": "https://www.wordreference.com/es/translation.asp?tranword={}",
+        "rd": "https://www.reddit.com/search/?q={}"
         }
 
 search_science = {
@@ -105,10 +106,6 @@ search_science = {
 search_engines = {**search_general, **search_science}
 
 config.set('url.searchengines', search_engines)
-
-
-# Scientific searches
-#c.aliases['science'] = multiple_search()
 
 
 # Adblock

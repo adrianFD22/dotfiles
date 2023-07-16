@@ -2,8 +2,7 @@
 
 
 # reMarkable: copy files to Google Drive to the reMarkable folder
-function cprm 
-{
+cprm () {
     for file in "$@"
     do
         echo "Copying $file..."
@@ -14,7 +13,7 @@ function cprm
 }
 
 # reMarkable: move files to Google Drive to the reMarkable folder
-function mvrm {
+mvrm () {
     for file in "$@"
     do
         echo "Moving $file..."

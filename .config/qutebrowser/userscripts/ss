@@ -4,7 +4,7 @@
 
 
 # Search engines to open
-declare -a engines_list=("arxiv" "scholar" "google" "ddg")
+declare -a engines_list=("arxiv" "scholar" "g" "ddg")
 
 # Create the qtb command
 command=""

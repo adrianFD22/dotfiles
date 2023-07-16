@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+# NNN settings
+[[ -f ~/.config/nnn/config ]] && . ~/.config/nnn/config
+
 # nnn: alias and cd on quit
 function n {
     # Block nesting of nnn in subshells

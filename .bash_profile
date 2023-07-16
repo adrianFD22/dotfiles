@@ -11,9 +11,6 @@ export DOWNLOADS="~/Downloads"
 # PATH
 PATH=$PATH:"~/.local/bin"
 
-# NNN settings
-[[ -f ~/.config/nnn/config ]] && . ~/.config/nnn/config
-
 # Start GUI
 if [[ "$(tty)" = "/dev/tty1" ]]; then
 	pgrep i3 || startx
