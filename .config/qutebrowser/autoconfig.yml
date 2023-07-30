@@ -6,23 +6,5 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        <Alt+h>: tab-prev
-        <Alt+l>: tab-next
-        <Ctrl+Shift+j>: devtools
-        J: null
-        K: null
-        cd: null
-        d: null
-        dc: download-clear
-        df: spawn --userscript open_downloads_folder.sh
-        do: download-open;; download-remove
-        ek: jseval --quiet --file delete_banner.js
-        pv: spawn -u umpv {url}
-        q: tab-close
-        st: config-cycle tabs.show never multiple
-        t: open -t
   tabs.show:
     global: multiple

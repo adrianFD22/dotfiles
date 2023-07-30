@@ -8,7 +8,6 @@
 # Copies a dir containing a latex project
 #
 
-
 export LATEX_PROJS="/home/adrian/Work/LaTeX/Templates/Projects"
 
 texproj () {

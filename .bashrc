@@ -2,6 +2,11 @@
 # ~/.bashrc
 #
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
+### SOURCE BASHRC DIR ###
 BASHRC_DIR=${XDG_CONFIG_HOME:-$HOME/.config}/bashrc
 
 # Load the 'init.sh'.

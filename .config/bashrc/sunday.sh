@@ -51,12 +51,12 @@ dotfiles-sunday () {
 
         # Commit
         read -p "Commit message: " message
-        dotfiles commit -am $message
+        dotfiles commit -am "$message"
 
         # Push
         echo "Push"
         echo
-        dotfiles push main origin
+        dotfiles push origin main
     fi;
 }
 

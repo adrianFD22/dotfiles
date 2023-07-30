@@ -4,8 +4,8 @@ local notes = require("simple-notes")
 
 notes.setup({
     daily_dir = "/home/adrian/Personal/Notes/Daily/",
-    templates_dir = "/home/adrian/Personal/Notes/Templates/Standard/"
-    --templates_dir = "/home/adrian/Personal/Notes/Templates/Travel/"
+    --templates_dir = "/home/adrian/Personal/Notes/Templates/Standard/"
+    templates_dir = "/home/adrian/Personal/Notes/Templates/Travel/"
 })
 
 -- Navigate notes
