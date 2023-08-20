@@ -152,3 +152,4 @@ application/x-extension-shtml=org.qutebrowser.qutebrowser.desktop;
 application/xhtml+xml=org.qutebrowser.qutebrowser.desktop;
 application/x-extension-xhtml=org.qutebrowser.qutebrowser.desktop;
 application/x-extension-xht=org.qutebrowser.qutebrowser.desktop;
+application/x-maple-worksheet=/home/adrian/.local/share/applications/maple2022.desktop

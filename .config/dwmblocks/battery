@@ -1,0 +1,35 @@
+#!/bin/bash
+
+battery=$(cat /sys/class/power_supply/BAT0/capacity)
+charging=$(cat /sys/class/power_supply/BAT0/status)
+temp_notify="/tmp/dwmblocks-battery-notification"
+temp_full="/tmp/dwmblocks-battery-full"
+
+if [ $charging = "Charging" ]; then
+    if ! [[ -f $temp_notify ]]; then
+        touch $temp_notify
+    fi
+    if ! [[ -f $temp_full ]]; then
+        touch $temp_full
+    fi
+    printf "%s⚡" $battery
+
+elif [ $charging = "Full" ]; then
+    if [[ -f $temp_full ]]; then
+        rm $temp_full
+        echo "Fully charged⚡" > $XNOTIFY_FIFO
+    fi
+    printf "%s⚡" $battery
+
+elif (( $battery > 10 )); then
+    if ! [[ -f $temp_notify ]]; then
+        touch $temp_notify
+    fi
+    printf "%s🔋" $battery
+else
+    if [[ -f $temp_notify ]]; then
+        rm $temp_notify
+        echo "Low battery🪫" > $XNOTIFY_FIFO
+    fi
+    printf "%s🪫" $battery
+fi

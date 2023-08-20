@@ -55,8 +55,14 @@ local function ChangeGJ()
     wrap = vim.opt.wrap:get()
 
     if wrap then
+        -- Normal mode
         vim.keymap.set('n', 'j', 'gj')
         vim.keymap.set('n', 'k', 'gk')
+
+        -- Visual mode
+        vim.keymap.set('v', 'j', 'gj')
+        vim.keymap.set('v', 'k', 'gk')
+
     else
         vim.keymap.del('n', 'j')
         vim.keymap.del('n', 'k')

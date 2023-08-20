@@ -2,3 +2,5 @@
 set selection-clipboard clipboard
 set incremental-search true
 
+# Colorscheme
+include zathura-gruvbox-dark-soft

@@ -18,6 +18,30 @@ def multiple_search(search_term, engines_list):
     return command
 '''
 
+# Command for multiple tabs
+def command_open_multiple_tabs(*urls):
+    command = ''
+
+    for tab in urls:
+        command += 'open -t ' + tab + ';;'
+
+    command += 'nop'
+
+    return command
+
+# Open scan shop tabs
+def command_open_shop_scan(shops, items):
+    urls = []
+    command = ''
+
+    for shop in shops:
+        for item in items:
+            item = item.replace(' ', '+')
+            curr_url = shop.format(item)
+            urls.append(curr_url)
+
+    return command_open_multiple_tabs(*urls)
+
 
 # ----------- Bindings -----------
 
@@ -25,8 +49,8 @@ def multiple_search(search_term, engines_list):
 config.unbind('J')
 config.unbind('K')
 
-config.bind('<Alt+h>', 'tab-prev')
-config.bind('<Alt+l>', 'tab-next')
+config.bind('<Alt+j>', 'tab-prev')
+config.bind('<Alt+k>', 'tab-next')
 
 
 # Open and close tabs
@@ -61,6 +85,24 @@ config.set('tabs.show', 'multiple')
 config.bind('<Ctrl+Shift+J>', 'devtools')
 
 
+# Open scan shop
+shops = [
+    'https://www.amazon.es/s?k={}',
+    'https://link.springer.com/search?query={}'
+    ]
+
+items = [
+    'stichtenoth algebraic function fields',
+    'atiyah macdonald commutative algebra'
+    ]
+
+config.bind('ss', command_open_shop_scan(shops, items))
+
+
+# Pass
+config.bind('pm', 'spawn --userscript qute-pass')
+
+
 # ----------- Settings -----------
 
 # Theme
@@ -80,9 +122,9 @@ config.set('colors.webpage.bg', '#282828') # Avoid qutebrowser white flashes
 
 
 # Clipboard
-config.set('content.javascript.can_access_clipboard', True, 'github.com')
-config.set('content.javascript.can_access_clipboard', True, 'duckduckgo.com')
-config.set('content.javascript.can_access_clipboard', True, 'ieeexplore.ieee.org')
+config.set('content.javascript.clipboard', 'access', 'github.com')
+config.set('content.javascript.clipboard', 'access', 'duckduckgo.com')
+config.set('content.javascript.clipboard', 'access', 'ieeexplore.ieee.org')
 
 
 # Categories
@@ -120,13 +162,16 @@ c.content.blocking.adblock.lists = [
         ]
 
 
+# TOR
+c.content.proxy = 'socks://localhost:9050/'
+
 # Start and default page
 config.set('url.default_page', '~/Personal/Projects/start_page/index.html')
 c.url.start_pages = ['~/Personal/Projects/start_page/index.html']
 
 
 # Show status bar
-c.statusbar.show = 'in-mode'
+c.statusbar.show = 'always'
 
 
 # Autoload

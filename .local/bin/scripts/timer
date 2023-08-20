@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Get parameters
+seconds=0
+minutes=0
+hours=0
+name=
+
+while getopts "s:m:h:n:" opt; do
+    case $opt in
+        s)  seconds=$OPTARG;;
+        m)  minutes=$OPTARG;;
+        h)  hours=$OPTARG;;
+        n)  name=$OPTARGS;;
+        ?)  printf "usage: %s" $0
+    esac
+done;
+
+# Execute timer
+total_time=$((seconds + minutes*60 + hour*60*60))
+
+sleep $total_time
+
+{
+    printf "Timer of duration %sh %sm %ss ended" $hours $minutes $seconds
+    #printf "Timer ended"
+#
+    #! [[ -z $name ]] && printf "\tName:\t %s" $name
+    #printf "\tDuration:\t"
+    #! [[ -z $hours ]] && printf "\t%sh " $hours
+    #! [[ -z $minutes ]] && printf "\t%sm " $minutes
+    #! [[ -z $seconds ]] && printf "\t%ss " $seconds
+
+} > $XNOTIFY_FIFO

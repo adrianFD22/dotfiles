@@ -32,13 +32,34 @@ dotfiles-sunday () {
         "/home/adrian/.config/qutebrowser/"
         "/home/adrian/.config/tmux/"
         "/home/adrian/.config/zathura/"
+        "/home/adrian/.config/dmenu/"
+        "/home/adrian/.config/dwmblocks/"
+        "/home/adrian/.config/dwm/"
+        "/home/adrian/.config/st/"
+        "/home/adrian/.local/bin/scripts"
     )
 
-    echo "Add"
+    declare -a dotfile_files=(
+        "/home/adrian/.gitignore"
+        "/home/adrian/.xinitrc"
+        "/home/adrian/.Xresources"
+        "/home/adrian/.bash_profile"
+        "/home/adrian/.bashrc"
+        "/home/adrian/.config/mimeapps.list"
+    )
+
+    echo "Add dirs"
     for dir in ${dotfile_dirs[*]}; do
         echo -n -e "\t"
         echo "$dir"
         dotfiles add $dir
+    done
+
+    echo "Add files"
+    for file in ${dotfile_files[*]}; do
+        echo -n -e "\t"
+        echo "$file"
+        dotfiles add $file
     done
 
     echo

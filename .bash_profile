@@ -9,7 +9,7 @@
 export DOWNLOADS="~/Downloads"
 
 # PATH
-PATH=$PATH:"~/.local/bin"
+PATH=$PATH:"/home/adrian/local/bin:/home/adrian/.local/bin/scripts"
 
 # Start GUI
 if [[ "$(tty)" = "/dev/tty1" ]]; then

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+cd ~/Work
+~/.repos/maple2022/bin/xmaple

@@ -1,0 +1,65 @@
+
+! dwm
+dwm.borderpx:       1
+dwm.gappx:          12
+dwm.dmenu.font:     monospace:size=10
+dwm.snap:           32
+dwm.showbar:        1
+dwm.topbar:         1
+dwm.nmaster:        1
+dwm.resizehints:    1
+dwm.mfact:          0.66
+
+! Font
+*.font:             monospace:size=10
+st.font:            Mono:pixelsize=15:antialias=true:autohint=tru
+
+! xnotify
+/*xnotify.titlefacName:
+xnotify.body.faceName:
+xnotify.geometry:
+xnotify.borderWith:
+xnotify.borderHeight:
+xnotify.imageWidth:
+xnotify.leading:
+xnotify.padding:
+xnotify.shrink:
+xnotify.alignment:
+xnotify.alignTop:
+xnotify.wrap:*/
+xnotify.gravity:        SE
+xnotify.gap:            10
+xnotify.geometry:       0x0-10-10
+
+! Colorscheme: gruvbox
+*.background:           #282828
+*.border:               #282828
+*.foreground:           #fbf1c7
+
+*.selected.background:  #665c54
+*.selected.border:      #fbf1c7
+*.selected.foreground:  #fbf1c7
+
+st.color0:  black
+st.color1:  #cc241d
+st.color2:  #98971a
+st.color3:  #d79921
+st.color4:  #458588
+st.color5:  #b16286
+st.color6:  #689d6a
+st.color7:  #a89984
+
+st.color8:  gray50
+st.color9:  #fb4934
+st.color10: #b8bb26
+st.color11: #fabd2f
+st.color12: #83a598
+st.color13: #d3869b
+st.color14: #8ec07c
+st.color15: #928374
+
+xnotify.background: #665c54
+xnotify.border:     #665c54
+
+!xnotify.background: #fb4934
+!xnotify.border:     #fb4934

@@ -54,6 +54,9 @@ exec --no-startup-id amixer set Master mute
 #exec --no-startup-id i3-msg 'workspace $ws10; exec $BROWSER'
 #exec --no-startup-id i3-msg 'workspace $ws1;'
 
+# Polybar
+exec_always --no-startup-id ~/.config/i3/Scripts/polybar.sh
+
 # Keyboard setting
 include keyboard.conf
 

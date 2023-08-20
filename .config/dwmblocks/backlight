@@ -1,0 +1,3 @@
+#!/bin/bash
+#
+printf "%s🔅" $(xbacklight -get | sed "s/\.[[:digit:]]*//")
