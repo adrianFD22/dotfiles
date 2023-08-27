@@ -19,7 +19,7 @@ elif [ $charging = "Full" ]; then
         rm $temp_full
         echo "Fully charged⚡" > $XNOTIFY_FIFO
     fi
-    printf "%s⚡" $battery
+    printf "%s🔋" $battery
 
 elif (( $battery > 10 )); then
     if ! [[ -f $temp_notify ]]; then

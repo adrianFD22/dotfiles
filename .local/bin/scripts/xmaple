@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Fix linux things
 export _JAVA_AWT_WM_NONREPARENTING=1
+#export AWT_TOOLKIT=MToolkit
+#wmname dwm
+
+# Move to Maple directory
 cd ~/Work
+
+# Run maple with screen colors inverted
+#xcalib -i -a
+picom &
 ~/.repos/maple2022/bin/xmaple
+pkill picom
+#xcalib -i -a

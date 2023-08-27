@@ -17,7 +17,7 @@ while getopts "s:m:h:n:" opt; do
 done;
 
 # Execute timer
-total_time=$((seconds + minutes*60 + hour*60*60))
+total_time=$((seconds + minutes*60 + hours*60*60))
 
 sleep $total_time
 

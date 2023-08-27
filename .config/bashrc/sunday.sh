@@ -36,6 +36,7 @@ dotfiles-sunday () {
         "/home/adrian/.config/dwmblocks/"
         "/home/adrian/.config/dwm/"
         "/home/adrian/.config/st/"
+        "/home/adrian/.config/picom"
         "/home/adrian/.local/bin/scripts"
     )
 
