@@ -42,5 +42,5 @@ texproj () {
     fi
 
     # Copy the dir
-    cp -r $project $dir_dest
+    cp -r "$project" "$dir_dest"
 }

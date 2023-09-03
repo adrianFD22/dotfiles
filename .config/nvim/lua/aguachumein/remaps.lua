@@ -1,9 +1,13 @@
 
--- Windows
-vim.keymap.set("n", "<A-h>", function() vim.cmd("wincmd h") end)
-vim.keymap.set("n", "<A-j>", function() vim.cmd("wincmd j") end)
-vim.keymap.set("n", "<A-k>", function() vim.cmd("wincmd k") end)
-vim.keymap.set("n", "<A-l>", function() vim.cmd("wincmd l") end)
+-- Navigate windows
+--vim.keymap.set("n", "<A-h>", function() vim.cmd("wincmd h") end)
+--vim.keymap.set("n", "<A-j>", function() vim.cmd("wincmd j") end)
+--vim.keymap.set("n", "<A-k>", function() vim.cmd("wincmd k") end)
+--vim.keymap.set("n", "<A-l>", function() vim.cmd("wincmd l") end)
+
+-- Navigate buffers
+vim.keymap.set("n", "<A-h>", function() vim.cmd("bp") end)
+vim.keymap.set("n", "<A-l>", function() vim.cmd("bn") end)
 
 -- Change directory
 vim.keymap.set("n", "<Leader>cd", function() vim.cmd("cd %:h | pwd") end)

@@ -19,15 +19,15 @@ local function CompileTex()
     dir_path = vim.fn.expand('%:p:h')
 
     -- Compile tex
-    command = "pdflatex -output-directory=" .. dir_path .. " " .. file_name .. " > /dev/null &"
+    command = "pdflatex -output-directory='" .. dir_path .. "' " .. file_name .. " > /dev/null &"
     os.execute(command)
 
     print("Compile tex")
 end
 
 -- Executes biber on the current file
-local function ExecuteBiber()
-    local dir_path, file_name, full_path, command
+local function CompileBibliography()
+    local dir_path, file_name, command, biber_cmd, bibtex_cmd
 
     -- Check file type
     if vim.bo.filetype ~= "tex" then
@@ -39,13 +39,13 @@ local function ExecuteBiber()
     file_name = vim.fn.expand('%:r')
     dir_path = vim.fn.expand('%:p:h')
 
-    full_path = dir_path .. "/" .. file_name
-
     -- Compile tex
-    command = "biber --output-directory=" .. dir_path .. " --input-directory=".. dir_path .. " " .. file_name .. " &"
+    biber_cmd = "biber --output-directory=" .. dir_path .. " --input-directory=".. dir_path .. " " .. file_name
+    bibtex_cmd = "bibtex " .. file_name
+    command = bibtex_cmd .. " || " .. biber_cmd .. " &"
     os.execute(command)
 
-    print("Executing biber")
+    print("Compiling bibliography")
 end
 
 -- Changes j and k with gj and gk in function on how the wrap option is set
@@ -81,5 +81,5 @@ end
 ----------------------------------------
 
 vim.keymap.set("n", "<Leader>lc", CompileTex)                           -- Compile current buffer
-vim.keymap.set("n", "<Leader>lb", ExecuteBiber)                           -- Compile current buffer
+vim.keymap.set("n", "<Leader>lb", CompileBibliography)                           -- Compile current buffer
 vim.keymap.set("n", "<Leader>w", ToggleWrapMode)   -- Toggle wrap

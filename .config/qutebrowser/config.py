@@ -53,6 +53,14 @@ config.bind('<Alt+j>', 'tab-prev')
 config.bind('<Alt+k>', 'tab-next')
 
 
+# Back and forward
+config.unbind('H')
+config.unbind('L')
+
+config.bind('<Alt+h>', 'back')
+config.bind('<Alt+l>', 'forward')
+
+
 # Open and close tabs
 config.unbind('d')
 
