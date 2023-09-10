@@ -3,5 +3,5 @@
 # dwmblocks
 res-dwmblocks () {
     pkill dwmblocks
-    nohup dwmblocks &
+    dwmblocks & disown
 }

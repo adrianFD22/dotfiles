@@ -19,7 +19,7 @@ local function CompileTex()
     dir_path = vim.fn.expand('%:p:h')
 
     -- Compile tex
-    command = "pdflatex -output-directory='" .. dir_path .. "' " .. file_name .. " > /dev/null &"
+    command = "pdflatex -output-directory='" .. dir_path .. "' '" .. file_name .. "' > /dev/null &"
     os.execute(command)
 
     print("Compile tex")

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+colorscheme_head=$( head -1 "/home/adrian/.config/zathura/colorschemerc" )
+
+if [[ "$colorscheme_head" = "#Dark mode on" ]]; then
+    printf "#Dark mode off" > "/home/adrian/.config/zathura/colorschemerc"
+else
+    printf "#Dark mode on\ninclude colorschemes/zathura-my-gruvbox" > "/home/adrian/.config/zathura/colorschemerc"
+fi;

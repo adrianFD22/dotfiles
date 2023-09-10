@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set keyseq-timeout 0
+set editing-mode vi

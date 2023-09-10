@@ -46,6 +46,7 @@ dotfiles-sunday () {
         "/home/adrian/.Xresources"
         "/home/adrian/.bash_profile"
         "/home/adrian/.bashrc"
+        "/home/adrian/.inputrc"
         "/home/adrian/.config/mimeapps.list"
     )
 
@@ -82,11 +83,11 @@ dotfiles-sunday () {
     fi;
 }
 
-pacman-sunday () {
+update-sunday () {
     echo "> Update system"
     echo
 
-    pacman -Syu
+    yay -Syu
 }
 
 sunday-routine () {
@@ -103,5 +104,5 @@ sunday-routine () {
     dotfiles-sunday
 
     # Update system
-    pacman-sunday
+    update-sunday
 }

@@ -49,9 +49,8 @@ def command_open_shop_scan(shops, items):
 config.unbind('J')
 config.unbind('K')
 
-config.bind('<Alt+j>', 'tab-prev')
-config.bind('<Alt+k>', 'tab-next')
-
+config.bind('<Alt+j>', 'tab-next')
+config.bind('<Alt+k>', 'tab-prev')
 
 # Back and forward
 config.unbind('H')
@@ -60,13 +59,11 @@ config.unbind('L')
 config.bind('<Alt+h>', 'back')
 config.bind('<Alt+l>', 'forward')
 
-
 # Open and close tabs
 config.unbind('d')
 
 config.bind('q', 'tab-close')
 config.bind('t', 'open -t')
-
 
 # Managing downloads
 config.unbind('cd')
@@ -75,19 +72,15 @@ config.bind('do', 'download-open;; download-remove')
 config.bind('dc', 'download-clear')
 config.bind('df', 'spawn --userscript open_downloads_folder.sh')
 
-
 # Supress banner
 config.bind('ek', 'jseval --quiet --file delete_banner.js')
-
 
 # Play video on mpv
 config.bind('pv', 'spawn -u umpv {url}')
 
-
 # Toggles tabs bar
-config.bind('st', 'config-cycle tabs.show never multiple')
-config.set('tabs.show', 'multiple')
-
+#config.bind('st', 'config-cycle tabs.show never multiple')
+config.set('tabs.show', 'always')
 
 # Toggles devtools
 config.bind('<Ctrl+Shift+J>', 'devtools')
@@ -106,7 +99,6 @@ items = [
 
 config.bind('ss', command_open_shop_scan(shops, items))
 
-
 # Pass
 config.bind('pm', 'spawn --userscript qute-pass')
 
@@ -116,6 +108,8 @@ config.bind('pm', 'spawn --userscript qute-pass')
 # Theme
 config.source("gruvbox.py")
 
+# Vertical tabs
+config.set('tabs.position', 'right')
 
 # Dark mode
 c.colors.webpage.preferred_color_scheme = 'dark'
@@ -128,16 +122,13 @@ c.colors.webpage.darkmode.threshold.background = 100
 
 config.set('colors.webpage.bg', '#282828') # Avoid qutebrowser white flashes
 
-
 # Clipboard
 config.set('content.javascript.clipboard', 'access', 'github.com')
 config.set('content.javascript.clipboard', 'access', 'duckduckgo.com')
 config.set('content.javascript.clipboard', 'access', 'ieeexplore.ieee.org')
 
-
 # Categories
 config.set('completion.open_categories', ['bookmarks', 'history'])
-
 
 # Search engines
 search_general = {
@@ -157,7 +148,6 @@ search_engines = {**search_general, **search_science}
 
 config.set('url.searchengines', search_engines)
 
-
 # Adblock
 config.set('content.blocking.method', 'both')
 c.content.blocking.adblock.lists = [
@@ -169,18 +159,15 @@ c.content.blocking.adblock.lists = [
         'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt'
         ]
 
-
 # TOR
-c.content.proxy = 'socks://localhost:9050/'
+#c.content.proxy = 'socks://localhost:9050/'
 
 # Start and default page
 config.set('url.default_page', '~/Personal/Projects/start_page/index.html')
 c.url.start_pages = ['~/Personal/Projects/start_page/index.html']
 
-
 # Show status bar
 c.statusbar.show = 'always'
-
 
 # Autoload
 config.load_autoconfig(False)

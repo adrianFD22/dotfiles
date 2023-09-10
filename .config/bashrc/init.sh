@@ -4,7 +4,7 @@
 export HISTSIZE=20000
 export FILES="n"
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="st"
 export BROWSER="qutebrowser"
 export VISUAL="nvim"
 export PAGER="less"
@@ -14,7 +14,7 @@ PS1='\[\e[90m\][\u@\H] \[\e[0m\]\W \[\e[33m\]$(git branch 2>/dev/null | grep ^* 
 PROMPT_COMMAND="export PROMPT_COMMAND=echo"
 
 ### CONFIG
-set -o vi
+#set -o vi
 
 ### ALIASES
 alias maple='~/.repos/maple2022/bin/maple'
@@ -60,4 +60,9 @@ ex () {
 # GAP
 gap () {
     /usr/bin/gap -b -L /home/adrian/Work/GAP/Workspaces/vanilla "$@"
+}
+
+# Spawn terminal in the same path
+term () {
+    $TERMINAL & disown
 }
