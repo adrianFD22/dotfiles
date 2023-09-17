@@ -4,5 +4,6 @@ ssid=$(nmcli | grep -i 'connected to' | sed 's/^.*connected to //')
 ip=$(ip a | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 
 if ! [[ -z "$ip" ]]; then
-    echo "$ssid $ip"
+    echo "🛜"
+    #echo "$ssid $ip"
 fi

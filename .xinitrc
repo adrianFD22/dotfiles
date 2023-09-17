@@ -17,6 +17,6 @@ xset r rate 300 60
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --bg-fill ~/Images/Wallpapers/nebula2
+feh --no-fehbg --bg-center ~/Images/Wallpapers/nebula2
 
 exec dwm

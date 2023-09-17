@@ -79,7 +79,7 @@ config.bind('ek', 'jseval --quiet --file delete_banner.js')
 config.bind('pv', 'spawn -u umpv {url}')
 
 # Toggles tabs bar
-#config.bind('st', 'config-cycle tabs.show never multiple')
+config.bind('st', 'config-cycle tabs.show never always')
 config.set('tabs.show', 'always')
 
 # Toggles devtools
