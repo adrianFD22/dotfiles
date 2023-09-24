@@ -12,22 +12,32 @@ export LATEX_PROJS="/home/adrian/Work/LaTeX/Templates/Projects"
 
 texproj () {
 
-    # Option to list project names
+    # Show usage message
+    show_usage() {
+        printf "usage: texproj [-lh] project dir_dest\n"
+    }
+
+    local OPTIND opt
     while getopts ":l" opt; do
-        project_names=$(ls -d $LATEX_PROJS/*/)
+        case $opt in
+            l)  # List templates
+                project_names=$(ls -d $LATEX_PROJS/*/)
+                for project in $project_names; do
+                    project=${project%/}
+                    project=${project##*/}
+                    echo "$project"
+                done
+                return 0;;
 
-        for project in $project_names; do
-            project=${project%/}
-            project=${project##*/}
-            echo $project
-        done
-
-        return 0
+            ?)  show_usage
+                return 1;;
+        esac
     done;
 
     # Check number of arguments
-    if ! (( ($# == 2) )); then
-        echo "usage: texproj project dir_dest"
+    if ! (( $# == 2 )); then
+        show_usage
+        printf "invalid number of arguments: %s" $#
         return 1
     fi
 
@@ -35,8 +45,7 @@ texproj () {
     dir_dest="$2"
 
     # Check that project exits
-    if ! [ -d $project ]; then
-        echo $
+    if ! [ -d "$project" ]; then
         echo "invalid project"
         return 1
     fi
