@@ -5,7 +5,6 @@ require("aguachumein.remaps")
 require("aguachumein.markdown")
 require("aguachumein.latex")
 
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -61,10 +60,10 @@ return require('packer').startup(function(use)
 	use { "sainnhe/gruvbox-material", as = "gruvbox-material" }
     --use { "ellisonleao/gruvbox.nvim" }
 
-    -- LSP
+    -- LSP zero
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
@@ -86,6 +85,31 @@ return require('packer').startup(function(use)
     -- UndoTree
     use 'mbbill/undotree'
 
+    -- Simple notes
+    use {
+        '/home/adrian/Personal/Projects/simple-notes'
+    }
+
+    -- Lean
+    --use {
+        --'Julian/lean.nvim',
+        --event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+--
+        --dependencies = {
+            --'neovim/nvim-lspconfig',
+            --'nvim-lua/plenary.nvim',
+            ---- you also will likely want nvim-cmp or some completion engine
+        --},
+--
+        ---- see details below for full configuration options
+        --opts = {
+            --lsp = {
+                --on_attach = on_attach,
+            --},
+            --mappings = true,
+        --}
+    --}
+
     -- LuaSnip
     --use({
         --"L3MON4D3/LuaSnip",
@@ -94,29 +118,4 @@ return require('packer').startup(function(use)
         ---- install jsregexp (optional!:).
         --run = "make install_jsregexp"
     --})
-
-    -- Simple notes
-    use {
-        '/home/adrian/Personal/Projects/simple-notes'
-    }
-
-    -- Lean
-    use {
-        'Julian/lean.nvim',
-        event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
-
-        dependencies = {
-            'neovim/nvim-lspconfig',
-            'nvim-lua/plenary.nvim',
-            -- you also will likely want nvim-cmp or some completion engine
-        },
-
-        -- see details below for full configuration options
-        opts = {
-            lsp = {
-                on_attach = on_attach,
-            },
-            mappings = true,
-    }
-}
 end)
