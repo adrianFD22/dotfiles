@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ### EXPORT
-export HISTSIZE=20000
 export FILES="n"
 export EDITOR="nvim"
 export TERMINAL="st"
@@ -9,12 +8,15 @@ export BROWSER="qutebrowser"
 export VISUAL="nvim"
 export PAGER="less"
 
+export HISTSIZE=20000
+export LESS="-iR --incsearch --search-options=^W"
+
 ### BASH PROMPT
 PS1='\[\e[90m\][\u@\H] \[\e[0m\]\W \[\e[33m\]$(git branch 2>/dev/null | grep ^* | colrm 1 2)\n\[\e[33;1m\]> \[\e[0m\]'
 PROMPT_COMMAND="export PROMPT_COMMAND=echo"
 
 ### CONFIG
-#set -o vi
+#set -o vi      # Not using this since .inputrc set vi mode more globally
 
 ### ALIASES
 alias maple='~/.repos/maple2022/bin/maple'

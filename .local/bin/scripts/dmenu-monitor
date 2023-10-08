@@ -1,0 +1,3 @@
+#!/bin/sh
+
+autorandr --list | dmenu -l 20 -p "Monitor:" | xargs autorandr

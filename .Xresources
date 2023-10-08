@@ -2,7 +2,7 @@
 ! dwm
 dwm.borderpx:       1
 dwm.gappx:          12
-dwm.dmenu.font:     monospace:size=10
+!dwm.dmenu.font:     monospace:size=10
 dwm.snap:           32
 dwm.showbar:        1
 dwm.topbar:         1
@@ -11,22 +11,14 @@ dwm.resizehints:    1
 dwm.mfact:          0.66
 
 ! Font
-*.font:             monospace:size=10
-st.font:            Mono:pixelsize=15:antialias=true:autohint=tru
+*.font:             Mono:size=10
+dwm.font2:          Mono:size=10
+st.font:            monospace:pixelsize=15:antialias=true:autohint=tru
+
+! tabbed
+tabbed.urgentswitch:        1
 
 ! xnotify
-/*xnotify.titlefacName:
-xnotify.body.faceName:
-xnotify.geometry:
-xnotify.borderWith:
-xnotify.borderHeight:
-xnotify.imageWidth:
-xnotify.leading:
-xnotify.padding:
-xnotify.shrink:
-xnotify.alignment:
-xnotify.alignTop:
-xnotify.wrap:*/
 xnotify.gravity:        SE
 xnotify.gap:            10
 xnotify.geometry:       0x0-10-10
@@ -39,6 +31,9 @@ xnotify.geometry:       0x0-10-10
 *.selected.background:  #665c54
 *.selected.border:      #fbf1c7
 *.selected.foreground:  #fbf1c7
+
+*.urgent.backgroud:     #111111
+*.urgent.foreground:    #cc0000
 
 st.color0:  black
 st.color1:  #cc241d

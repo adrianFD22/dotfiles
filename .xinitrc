@@ -1,11 +1,14 @@
 #!/bin/bash
 
+# Set default monitor configuration
+autorandr default
+
 # On startup settings
 amixer set Master mute
 xdotool mousemove 1365 767
 xrdb ~/.Xresources
 
-## Set xnotify FIFO
+# Set xnotify FIFO
 export XNOTIFY_FIFO="$HOME/.cache/xnotify$DISPLAY.fifo"
 rm -f $XNOTIFY_FIFO
 mkfifo $XNOTIFY_FIFO
@@ -17,6 +20,6 @@ xset r rate 300 60
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --bg-center ~/Images/Wallpapers/nebula2
+feh --no-fehbg --no-xinerama --bg-center ~/Images/Wallpapers/bleu.png
 
 exec dwm

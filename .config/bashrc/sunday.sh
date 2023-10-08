@@ -47,6 +47,7 @@ dotfiles-sunday () {
         "/home/adrian/.bash_profile"
         "/home/adrian/.bashrc"
         "/home/adrian/.inputrc"
+        "/home/adrian/.config/lesskey"
         "/home/adrian/.config/mimeapps.list"
     )
 

@@ -1,0 +1,6 @@
+
+#line-edit
+\e abort
+
+#command
+\e undo-hilite

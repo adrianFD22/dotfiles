@@ -48,38 +48,17 @@ local function CompileBibliography()
     print("Compiling bibliography")
 end
 
--- Changes j and k with gj and gk in function on how the wrap option is set
-local function ChangeGJ()
-    local wrap
-
-    wrap = vim.opt.wrap:get()
-
-    if wrap then
-        -- Normal mode
-        vim.keymap.set('n', 'j', 'gj')
-        vim.keymap.set('n', 'k', 'gk')
-
-        -- Visual mode
-        vim.keymap.set('v', 'j', 'gj')
-        vim.keymap.set('v', 'k', 'gk')
-
-    else
-        vim.keymap.del('n', 'j')
-        vim.keymap.del('n', 'k')
-    end
-end
-
--- Toggle 'wrap mode'
-local function ToggleWrapMode()
-    vim.cmd("set wrap!")
-    ChangeGJ()
-end
-
-
 ----------------------------------------
 --             Shortcuts
 ----------------------------------------
 
 vim.keymap.set("n", "<Leader>lc", CompileTex)                           -- Compile current buffer
 vim.keymap.set("n", "<Leader>lb", CompileBibliography)                           -- Compile current buffer
-vim.keymap.set("n", "<Leader>w", ToggleWrapMode)   -- Toggle wrap
+vim.keymap.set("n", "<Leader>w", function() vim.cmd("set wrap!") end)
+
+-- Remap j to gj
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('v', 'j', 'gj')
+vim.keymap.set('v', 'k', 'gk')
+
