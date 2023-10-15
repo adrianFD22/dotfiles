@@ -1,0 +1,6 @@
+#!/bin/sh
+
+format="BG:#cc0000\tTAG:lock\t"
+echo -e "${format}screen locked" > $XNOTIFY_FIFO            # Show notification of locked screen
+slock                                                       # Lock screen
+echo -e "${format}SEC:1\tscreen unlocked" > $XNOTIFY_FIFO   # Delete notification

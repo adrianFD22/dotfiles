@@ -8,6 +8,7 @@ temp_full="/tmp/dwmblocks-battery-full"
 if [ $charging = "Charging" ]; then
     if ! [[ -f $temp_notify ]]; then
         touch $temp_notify
+        echo -e "SEC:1\tTAG:battery\tCharging ⚡" > $XNOTIFY_FIFO
     fi
     if ! [[ -f $temp_full ]]; then
         touch $temp_full
@@ -17,19 +18,20 @@ if [ $charging = "Charging" ]; then
 elif [ $charging = "Full" ]; then
     if [[ -f $temp_full ]]; then
         rm $temp_full
-        echo "Fully charged⚡" > $XNOTIFY_FIFO
+        echo -e "TAG:battery\tFully charged⚡" > $XNOTIFY_FIFO
     fi
     printf "%s🔋" $battery
 
 elif (( $battery > 10 )); then
     if ! [[ -f $temp_notify ]]; then
         touch $temp_notify
+        echo -e "SEC:1\tTAG:battery\tDischarging ⚡" > $XNOTIFY_FIFO
     fi
     printf "%s🔋" $battery
 else
     if [[ -f $temp_notify ]]; then
         rm $temp_notify
-        echo "Low battery🪫" > $XNOTIFY_FIFO
+        echo -e "TAG:battery\tLow battery🪫" > $XNOTIFY_FIFO
     fi
     printf "%s🪫" $battery
 fi

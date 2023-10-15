@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ls "$HOME/.local/bin/scripts"  | grep "dmenu-" | sed -e "s+^dmenu-++" | dmenu -p "Menu:" -l 20 | xargs printf 'dmenu-%s' | ${SHELL:-"/bin/sh"} &

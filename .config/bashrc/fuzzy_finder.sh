@@ -9,11 +9,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
     --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54'
 
 fcd() {
-  local cmd opts dir
-  cmd="${FZF_ALT_C_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
-    -o -type d -print 2> /dev/null | cut -b3-"}"
-  opts="--height ${FZF_TMUX_HEIGHT:-40%} --bind=ctrl-z:ignore --reverse ${FZF_DEFAULT_OPTS-} ${FZF_ALT_C_OPTS-} +m"
-  dir=$(eval "$cmd" | FZF_DEFAULT_OPTS="$opts" $(__fzfcmd)) && cd -- "$dir"
+    builtin cd $(fzf-dir)
 }
 
 fhistory() {
@@ -26,11 +22,12 @@ fhistory() {
       FZF_DEFAULT_OPTS="$opts" $(__fzfcmd) --query "$READLINE_LINE"
   ) || return
   READLINE_LINE=${output#*$'\t'}
-  if [[ -z "$READLINE_POINT" ]]; then
-     eval "$READLINE_LINE"
-  else
-    READLINE_POINT=0x7fffffff
-  fi
+  echo $READLINE_LINE
+  #if [[ -z "$READLINE_POINT" ]]; then
+     #eval "$READLINE_LINE"
+  #else
+    #READLINE_POINT=0x7fffffff
+  #fi
 }
 
 # fzy

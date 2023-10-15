@@ -1,4 +1,5 @@
 [Default Applications]
+application/javascript=nvim.desktop
 application/x-fictionbook+xml=zathura-tabbed.desktop
 application/oxps=zathura-tabbed.desktop
 application/pdf=zathura-tabbed.desktop

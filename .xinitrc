@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Set default monitor configuration
-autorandr default
+#autorandr default
 
 # On startup settings
 amixer set Master mute
+pulsemixer --set-volume 50
 xdotool mousemove 1365 767
 xrdb ~/.Xresources
 

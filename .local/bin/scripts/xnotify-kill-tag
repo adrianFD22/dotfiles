@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#echo -e "TAG:$1\tkill" > $XNOTIFY_FIFO     # Send auxiliar notification
+#pkill --signal SIGUSR1 xnotify          # Delete notification o locked screen

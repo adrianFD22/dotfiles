@@ -52,6 +52,10 @@ config.unbind('K')
 config.bind('<Alt+j>', 'tab-next')
 config.bind('<Alt+k>', 'tab-prev')
 
+# Move tabs
+config.bind('<Shift+Alt+j>', 'tab-move +1')
+config.bind('<Shift+Alt+k>', 'tab-move -1')
+
 # Back and forward
 config.unbind('H')
 config.unbind('L')

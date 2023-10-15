@@ -34,7 +34,7 @@ alias mv='mv -i'
 # alias rm='rm -i'
 
 ### FUNCTIONS
-# usage: ex <file>
+# usage: ex <file> <dir>
 ex () {
   if [ -f "$1" ] ; then
     case $1 in

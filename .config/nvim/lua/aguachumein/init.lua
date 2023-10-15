@@ -14,16 +14,22 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- Fuzzy finder: telescope
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	--use {
+		--'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		---- or                            , branch = '0.1.x',
+		--requires = { {'nvim-lua/plenary.nvim'} }
+	--}
 
 	-- File explorer: nnn
 	use {
 		"luukvbaal/nnn.nvim",
 		config = function() require("nnn").setup({
+            explorer = {
+                cmd = "nnn -A"
+            },
+            picker = {
+                cmd = "nnn -A"
+            },
 			auto_open = {
 				setup = nil,       -- or "explorer" / "picker", auto open on setup function
 				tabpage = nil,     -- or "explorer" / "picker", auto open when opening new tabpage
@@ -45,7 +51,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- Harpoon
-	use "ThePrimeagen/harpoon"
+	-- use "ThePrimeagen/harpoon"
 
 	-- Treesitter
 	use (
@@ -54,7 +60,7 @@ return require('packer').startup(function(use)
 	)
 
 	-- Treesitter playground
-	use 'nvim-treesitter/playground'
+	-- use 'nvim-treesitter/playground'
 
 	-- Colorscheme
 	use { "sainnhe/gruvbox-material", as = "gruvbox-material" }
@@ -83,7 +89,7 @@ return require('packer').startup(function(use)
     }
 
     -- UndoTree
-    use 'mbbill/undotree'
+    -- use 'mbbill/undotree'
 
     -- Simple notes
     use {

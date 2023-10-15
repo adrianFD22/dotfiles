@@ -21,7 +21,7 @@ tabbed.urgentswitch:        1
 ! xnotify
 xnotify.gravity:        SE
 xnotify.gap:            10
-xnotify.geometry:       0x0-10-10
+xnotify.geometry:       -10-10
 
 ! Colorscheme: gruvbox
 *.background:           #282828

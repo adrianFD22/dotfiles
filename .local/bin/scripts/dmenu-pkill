@@ -1,5 +1,5 @@
 #!/bin/sh
 
-pid_to_kill=$(ps aux | tail -n +2 | tac | dmenu -l 20 | awk '{print $2}')
+pid_to_kill=$(ps aux | tail -n +2 | tac | dmenu -p "Kill:" -l 20 | awk '{print $2}')
 
 kill $pid_to_kill

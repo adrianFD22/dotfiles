@@ -2,9 +2,10 @@
 
 # Full screen screenshot
 
+screenshots_dir="/home/adrian/Images/Screenshots"
 screenshot_name=$(printf 'screenshot_%s.png' $(date +'%G-%m-%d-%T'))
 
-while  getopts "i" opt; do
+while getopts "i" opt; do
     case $opt in
         i)  print_window_flag=1;;
         ?)  printf "Usage: %s: [-i]\n" $0
@@ -13,9 +14,10 @@ while  getopts "i" opt; do
 done
 
 if [ ! -z "$print_window_flag" ]; then
-    maim -i $(xdotool getactivewindow) ~/Images/Screenshots/$screenshot_name
+    maim -i $(xdotool getactivewindow) "$screenshots_dir/$screenshot_name"
 else
-    maim ~/Images/Screenshots/$screenshot_name
+    maim "$screenshots_dir/$screenshot_name"
 fi
 
-echo $screenshot_name > $XNOTIFY_FIFO
+#echo -e "IMG:$screenshots_dir/$screenshot_name\t$screenshot_name" > $XNOTIFY_FIFO
+echo -e "$screenshot_name" > $XNOTIFY_FIFO

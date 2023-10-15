@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # NNN settings
 [[ -f ~/.config/nnn/config ]] && . ~/.config/nnn/config
 
