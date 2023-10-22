@@ -15,4 +15,4 @@
   #FZF_DEFAULT_OPTS="$opts" $(__fzfcmd) --query "$READLINE_LINE"
 #) || return
 
-cat .bash_history | fzf --tac
+cat .bash_history | fzf --bind="alt-j:down,alt-k:up" --tac

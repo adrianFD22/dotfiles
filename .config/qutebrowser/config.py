@@ -53,8 +53,8 @@ config.bind('<Alt+j>', 'tab-next')
 config.bind('<Alt+k>', 'tab-prev')
 
 # Move tabs
-config.bind('<Shift+Alt+j>', 'tab-move +1')
-config.bind('<Shift+Alt+k>', 'tab-move -1')
+config.bind('<Shift+Alt+j>', 'tab-move +')
+config.bind('<Shift+Alt+k>', 'tab-move -')
 
 # Back and forward
 config.unbind('H')
@@ -130,6 +130,13 @@ config.set('colors.webpage.bg', '#282828') # Avoid qutebrowser white flashes
 config.set('content.javascript.clipboard', 'access', 'github.com')
 config.set('content.javascript.clipboard', 'access', 'duckduckgo.com')
 config.set('content.javascript.clipboard', 'access', 'ieeexplore.ieee.org')
+
+# File picker
+#c.fileselect.handler = "external"
+#c.fileselect.multiple_files.command = ["terminal-init", "n -p -"]
+#c.fileselect.single_file.command = ["terminal-init", "n -p -"]
+#c.fileselect.multiple_files.command = ["st", "-o", "{}", "-e", "nnn", "-p", "-"]
+#c.fileselect.single_file.command = ["st", "-o", "{}", "-e", "nnn", "-p", "-"]
 
 # Categories
 config.set('completion.open_categories', ['bookmarks', 'history'])

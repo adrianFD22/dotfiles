@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -r ~/.local/share/qutebrowser/sessions
+rm -r ~/.local/share/qutebrowser/webengine
+rm -r ~/.cache/qutebrowser

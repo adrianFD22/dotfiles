@@ -1,3 +1,6 @@
 #!/bin/bash
 
-find -L . -mindepth 1 -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' -prune -o -type d -print 2> /dev/null | fzf
+# old version
+#find -L . -mindepth 1 -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' -prune -o -type d -print 2> /dev/null | fzf
+
+find -L . -type d -print 2> /dev/null | fzf --bind="alt-j:down,alt-k:up"
