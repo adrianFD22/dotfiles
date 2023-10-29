@@ -4,25 +4,35 @@
 --             Functions
 ----------------------------------------
 
--- Compiles the tex file of the current buffer
-local function CompileTex()
-    local dir_path, file_name, command
+-- Check if file exists
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
 
-    -- Check file type
-    if vim.bo.filetype ~= "tex" then
-        print("Invalid filetype for tex compiling: " .. vim.bo.filetype)
-        return nil
-    end
+-- Compiles the main tex file of current project
+local function CompileMainTex()
+    local dirs, dir_path, file_name, command
 
-    -- Get file name
+    -- Find main in current folder
     file_name = vim.fn.expand('%:r')
     dir_path = vim.fn.expand('%:p:h')
 
-    -- Compile tex
-    command = "pdflatex -output-directory='" .. dir_path .. "' '" .. "main" .. "' > /dev/null &"
-    os.execute(command)
+    dirs = {".", ".."}
 
-    print("Compile tex")
+    for _, path in ipairs(dirs) do
+        dir_name = dir_path .. "/".. path
+        file_name = dir_name .. "/main.tex"
+        if file_exists(file_name) then
+            -- Compile latex
+            command = "pdflatex -output-directory='" .. dir_name .. "' '" .. file_name .. "' > /dev/null &"
+            os.execute(command)
+            print("Compile main.tex")
+            return
+        end
+    end
+
+    print("No main.tex file found")
 end
 
 -- Executes biber on the current file
@@ -52,7 +62,7 @@ end
 --             Shortcuts
 ----------------------------------------
 
-vim.keymap.set("n", "<Leader>lc", CompileTex)                           -- Compile current buffer
+vim.keymap.set("n", "<Leader>lc", CompileMainTex)                           -- Compile current buffer
 vim.keymap.set("n", "<Leader>lb", CompileBibliography)                           -- Compile current buffer
 vim.keymap.set("n", "<Leader>w", function() vim.cmd("set wrap!") end)
 
