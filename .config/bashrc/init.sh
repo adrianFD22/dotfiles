@@ -25,7 +25,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias vim='nvim'
 alias hgrep='history | grep $@'
-alias cl="unset PROMPT_COMMAND; clear -x; PROMPT_COMMAND='export PROMPT_COMMAND=echo'"
+alias clear="unset PROMPT_COMMAND; clear -x; PROMPT_COMMAND='export PROMPT_COMMAND=echo'"
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias fzf='fzf --bind="alt-j:down,alt-k:up"'
 

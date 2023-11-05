@@ -69,6 +69,12 @@ config.unbind('d')
 config.bind('q', 'tab-close')
 config.bind('t', 'open -t')
 
+# Command mode completion
+config.unbind('<Tab>', mode='command')
+config.unbind('<Shift+Tab>', mode='command')
+config.bind('<Alt+j>', 'completion-item-focus next', mode='command')
+config.bind('<Alt+k>', 'completion-item-focus prev', mode='command')
+
 # Managing downloads
 config.unbind('cd')
 

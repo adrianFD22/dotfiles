@@ -1,7 +1,7 @@
 
 ! dwm
 dwm.borderpx:       1
-dwm.gappx:          12
+dwm.gappx:          4
 !dwm.dmenu.font:     monospace:size=10
 dwm.snap:           32
 dwm.showbar:        1

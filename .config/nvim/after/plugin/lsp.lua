@@ -23,6 +23,7 @@ local cmp_action = require('lsp-zero').cmp_action()
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = cmp.mapping.confirm({select = true}),
+    --['<CR>'] = cmp.mapping.confirm({select = true}),
     ['<A-j>'] = cmp_action.luasnip_supertab(),
     ['<A-k>'] = cmp_action.luasnip_shift_supertab(),
   })

@@ -12,6 +12,13 @@ vim.keymap.set("n", "<A-l>", function() vim.cmd("bn") end)
 -- Change directory
 vim.keymap.set("n", "<Leader>cd", function() vim.cmd("cd %:h | pwd") end)
 
+
+-- Remap j to gj
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('v', 'j', 'gj')
+vim.keymap.set('v', 'k', 'gk')
+
 -- Reload config
 vim.keymap.set("n", "<Leader>r", function() vim.cmd("source ~/.config/nvim/init.lua") print("init.lua reloaded") end)
 
