@@ -122,15 +122,16 @@ config.source("gruvbox.py")
 config.set('tabs.position', 'right')
 
 # Dark mode
-c.colors.webpage.preferred_color_scheme = 'dark'
-c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.algorithm = "lightness-cielab"
-c.colors.webpage.darkmode.threshold.text = 150
-c.colors.webpage.darkmode.threshold.background = 100
-#c.colors.webpage.darkmode.policy.images = 'always'
-#c.colors.webpage.darkmode.grayscale.images = 0.35
+c.colors.webpage.preferred_color_scheme         =  'dark'
+c.colors.webpage.darkmode.enabled               =  True
+c.colors.webpage.darkmode.algorithm             =  "lightness-cielab"
+c.colors.webpage.darkmode.threshold.text        =  150
+c.colors.webpage.darkmode.threshold.background  =  100
+c.colors.webpage.darkmode.policy.images         =  'always'
+c.colors.webpage.darkmode.grayscale.images      =  0.35
+c.colors.webpage.bg                             = '#282828'
 
-config.set('colors.webpage.bg', '#282828') # Avoid qutebrowser white flashes
+#config.set('colors.webpage.bg', '#282828') # Avoid qutebrowser white flashes
 
 # Clipboard
 config.set('content.javascript.clipboard', 'access', 'github.com')
