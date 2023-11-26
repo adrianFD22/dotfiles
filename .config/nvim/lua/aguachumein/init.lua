@@ -92,8 +92,13 @@ return require('packer').startup(function(use)
     -- use 'mbbill/undotree'
 
     -- Simple notes
+    --use {
+        --'/home/adrian/Personal/Projects/simple-notes'
+    --}
+
+    -- Easy align
     use {
-        '/home/adrian/Personal/Projects/simple-notes'
+        'junegunn/vim-easy-align'
     }
 
     -- Lean
