@@ -8,7 +8,9 @@ from os import path
 import argparse
 from datetime import datetime
 
-config_dir = "/home/adrian/.config/simple-notes/"
+config_dir           = "/home/adrian/.config/simple-notes/"
+punctual_events_file = "punctual_events.csv"
+cyclic_events_file   = "cyclic_events.csv"
 
 # --------------------------------------
 #                 Utils
@@ -56,7 +58,7 @@ def get_daily_note():
         today_events = []
 
         # Get cyclic events
-        with open(notes_dir + '/' + 'cyclic_events.csv', 'r') as f:
+        with open(config_dir + '/' + cyclic_events_file, 'r') as f:
             base_date    = datetime(1900, 1, 1)
             today_number = (today - base_date).days
 
@@ -72,7 +74,7 @@ def get_daily_note():
                     today_events.append(event)
 
         # Get punctual events
-        with open(notes_dir + '/' + 'punctual_events.csv', 'r') as f:
+        with open(config_dir + '/' + punctual_events_file, 'r') as f:
             not_today_events = []
 
             spamreader = csv.reader(f)
@@ -80,15 +82,15 @@ def get_daily_note():
                 event_date = row[0]
                 event      = row[1]
 
-                if str(today) == event_date:
+                if str(today.date()) == event_date:
                     today_events.append(event)
-                elif str(today) > event_date:
+                elif str(today.date()) > event_date:
                     today_events.append(event_date + ": " + event.lstrip())
                 else:
                     not_today_events.append(row)
 
         # Update punctual events
-        with open(notes_dir + '/' + 'punctual_events.csv', 'w') as f:
+        with open(config_dir + '/' + punctual_events_file, 'w') as f:
             spamwriter = csv.writer(f)
             for row in not_today_events:
                 spamwriter.writerow(row)
@@ -102,6 +104,9 @@ def get_daily_note():
             events_content = events_content + "\n"
             note_content = events_content + note_content
 
+        # Add daily notes section
+        note_content = note_content + "\n# Daily notes\n- "
+
         with open(note_path, 'w') as f:
             f.write(note_content)
 
@@ -114,7 +119,15 @@ def set_profile(profile):
     notes_dir, _ = get_options()
 
     with open(config_dir + "config.csv", 'w') as f:
-        f.write(notes_dir + ", " + profile)
+        f.write(notes_dir + "," + profile)
+
+def add_punctual_event(date, event):
+    with open(config_dir + "/" + punctual_events_file, 'a') as f:
+        f.write(date + "," + event + "\n")
+
+def add_cyclic_event(modulus, coset, event):
+    with open(config_dir + cyclic_events_file, 'a') as f:
+        f.write(modulus + "," + coset + "," + event + "\n")
 
 
 # --------------------------------------
@@ -122,12 +135,40 @@ def set_profile(profile):
 # --------------------------------------
 
 # Parse options
-#parser = argparse.ArgumentParser(
-                    #prog='simple-notes',
-                    #description='Manage daily notes',
-                    #epilog='')
-#group = parser.add_mutually_exclusive_group(required=True)
-#group.add_argument('--get', nargs=1)
-#group.add_argument('--set', nargs=2)
+parser = argparse.ArgumentParser(
+                    prog='simple-notes',
+                    description='Manage daily notes',
+                    epilog='')
+parser.add_argument("action", choices=["set", "get"], nargs=1)
+parser.add_argument("parameters", nargs="*")
 
-print(get_daily_note())
+args = parser.parse_args()
+
+if args.action[0] == "get":
+    if len(args.parameters) != 1:
+        print("Invalid option format")
+    else:
+        match args.parameters[0]:
+            case "profile":
+                print(get_options()[1])
+            case "dir":
+                print(get_options()[0])
+            case "note":
+                print(get_daily_note())
+            case _:
+                print("Invalid get option")
+else:
+    if len(args.parameters) < 2:
+        print("Invalid option format")
+    else:
+        option  = args.parameters[0]
+
+        match args.parameters[0]:
+            case "profile":
+                set_profile(args.parameters[1])
+            case "punctual":
+                add_punctual_event(args.parameters[1], args.parameters[2])
+            case "cyclic":
+                add_cyclic_event(args.parameters[1], args.parameters[2], args.parameters[3])
+            case _:
+                print("Invalid set option")

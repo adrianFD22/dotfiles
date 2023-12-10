@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Find commands in the cheeatsheet file
+cheatsheet_file="/home/adrian/Notes/cheatsheet.md"
+grep "$1" "$cheatsheet_file"

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Open camera
+xawtv -c /dev/video0 &
+
+# Resize
+sleep 1
+id=$(xdotool search --class "Xawtv")
+xdotool windowsize "$id" 333 250
+xdotool windowmove "$id" 1020 505
+xdotool windowstate --add STICKY "$id"

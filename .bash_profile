@@ -7,7 +7,7 @@
 
 # Environment variables
 export DOWNLOADS="~/Downloads"
-export QUTE_QT_WRAPPER=PyQt5
+#export QUTE_QT_WRAPPER=PyQt5   # Use Qt5 instead of Qt6
 
 # PATH
 PATH=$PATH:"/home/adrian/local/bin:"

@@ -6,7 +6,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #wmname dwm
 
 # Move to Maple directory
-cd ~/Work
+#cd ~/Work
 
 # Run maple with screen colors inverted
 #xcalib -i -a

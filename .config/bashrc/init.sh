@@ -9,7 +9,7 @@ export VISUAL="nvim"
 export PAGER="less"
 
 export HISTSIZE=20000
-export LESS="-iR --incsearch --search-options=^W"
+export LESS="-iR --incsearch --search-options=W"
 
 ### BASH PROMPT
 PS1='\[\e[90m\][\u@\H] \[\e[0m\]\W \[\e[33m\]$(git branch 2>/dev/null | grep ^* | colrm 1 2)\n\[\e[33;1m\]> \[\e[0m\]'

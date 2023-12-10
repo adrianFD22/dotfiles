@@ -18,7 +18,7 @@
 
 -- Utils
 function open_note()
-    local note = vim.fn.system("simple-notes get-note")
+    local note = vim.fn.system("simple-notes get note")
 
     local command = "e " .. note
     vim.cmd(command)
