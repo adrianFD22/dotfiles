@@ -8,7 +8,7 @@ is_img_extension() {
 }
 
 listfiles() {
-    find -L "$1" -maxdepth 1 -type f -print |
+    fd -L --maxdepth 1 -t f . "$1" |
         is_img_extension | sort | tee "$tmp"
 }
 

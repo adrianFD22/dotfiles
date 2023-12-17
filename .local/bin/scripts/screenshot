@@ -1,23 +1,14 @@
 #!/bin/sh
 
-# Full screen screenshot
+# Screen screenshot
 
 screenshots_dir="/home/adrian/Images/Screenshots"
-screenshot_name=$(printf 'screenshot_%s.png' $(date +'%G-%m-%d-%T'))
+screenshot_name=$(printf 'screenshot_%s.png' "$(date +'%G-%m-%d-%T')")
 
-while getopts "i" opt; do
-    case $opt in
-        i)  print_window_flag=1;;
-        ?)  printf "Usage: %s: [-i]\n" $0
-            exit 2
-    esac
-done
+# If any parameter is given, full screenshot
+[ -z "$1" ] && flag_selection="-s"
 
-if [ ! -z "$print_window_flag" ]; then
-    maim -i $(xdotool getactivewindow) "$screenshots_dir/$screenshot_name"
-else
-    maim "$screenshots_dir/$screenshot_name"
+# Take screenshot and show notification
+if maim $flag_selection "$screenshots_dir/$screenshot_name"; then
+    printf '%s' "$screenshot_name" > "$XNOTIFY_FIFO"
 fi
-
-#echo -e "IMG:$screenshots_dir/$screenshot_name\t$screenshot_name" > $XNOTIFY_FIFO
-echo -e "$screenshot_name" > $XNOTIFY_FIFO

@@ -67,3 +67,11 @@ end
 vim.keymap.set("n", "<Leader>lc", CompileMainTex)                           -- Compile current buffer
 vim.keymap.set("n", "<Leader>lb", CompileBib)                           -- Compile current buffer
 vim.keymap.set("n", "<Leader>w", function() vim.cmd("set wrap!") end)
+
+-- Math mode text-object
+
+-- https://thevaluable.dev/vim-create-text-objects/
+vim.api.nvim_set_keymap('x', "i" .. '$', string.format(':<C-u>silent! normal! f%sF%slvt%s<CR>', '$', '$', '$'), { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', "a" .. '$', string.format(':<C-u>silent! normal! f%sF%svf%s<CR>', '$', '$', '$'), { noremap = true, silent = true })
+vim.api.nvim_set_keymap('o', "i" .. '$', string.format(':<C-u>silent! normal! f%sF%slvt%s<CR>', '$', '$', '$'), { noremap = true, silent = true })
+vim.api.nvim_set_keymap('o', "a" .. '$', string.format(':<C-u>silent! normal! f%sF%svf%s<CR>', '$', '$', '$'), { noremap = true, silent = true })

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ffmpeg -f x11grab -s "$(awk '/dimensions/ {print $2}' <(xdpyinfo))" -i :0.0 -f pulse -i 1 output.mp4

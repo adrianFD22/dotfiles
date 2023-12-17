@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# Get all the windows with wmctrl -l
-# select with dmenu
-# focus with xdotool windowactivate

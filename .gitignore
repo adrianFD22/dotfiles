@@ -2,4 +2,5 @@
 .config/qutebrowser/qsettings/*
 .config/qutebrowser/__pycache__/*
 .config/nnn/bookmarks/*
+.config/nnn/.*
 .config/nvim/plugin/*

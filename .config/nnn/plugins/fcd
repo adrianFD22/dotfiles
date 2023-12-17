@@ -1,4 +1,4 @@
 #!/bin/sh
 
-dir="$PWD/$(fzf-dir)"
+dir="$PWD/$(fd -H -t d . | fzf --bind="alt-j:down,alt-k:up")"
 printf "%s" "0c$dir" > "$NNN_PIPE"

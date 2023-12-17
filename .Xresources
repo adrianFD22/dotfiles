@@ -1,4 +1,6 @@
 
+!Xcursor.theme: Future-cursors
+
 ! dwm
 dwm.borderpx:       1
 dwm.gappx:          4
