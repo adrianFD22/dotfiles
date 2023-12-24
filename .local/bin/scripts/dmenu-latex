@@ -1,0 +1,25 @@
+#!/bin/bash
+
+latex_dir="/home/adrian/Work/LaTeX/"
+
+action=$(printf 'open\nnew'| dmenu -l 20 -p "LaTeX:")
+
+if [ "$action" = "open" ]; then
+    # Select project
+    proj_dir=$(fd 'main.pdf' --strip-cwd-prefix --base-directory $latex_dir -x echo '{//}' | sort | dmenu -i -l 20 -p "Open LaTeX:"  )
+    #proj_dir=$(find $latex_dir -type d -exec sh -c '[ -f "$0"/main.tex ] && [ -f "$0"/main.pdf ]' '{}' \; -print | sed -e "s+^$latex_dir++" | sort | dmenu -i -l 20 -p "LaTeX:" )
+    proj_dir="$latex_dir$proj_dir"
+
+    # Prevent invalid dirs (exploitability)
+    if ! [ -d "$proj_dir" ] || [ "$latex_dir" = "$proj_dir" ]; then
+        exit 1
+    fi
+
+    # Open editor and pdf viewer
+    xdg-open "$proj_dir/main.pdf"
+    terminal-init "cd \"$proj_dir\"; nvim main.tex"
+
+elif [ "$action" = "new" ]; then
+    proj_dir=$(fd -t d --base-directory "$latex_dir" | dmenu -i -l 20 -p "New LaTeX:")
+    echo $proj_dir
+fi
