@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Select dictionary
+dicts="fd-eng-spa
+fd-spa-eng"
+
+sel_dict=$(echo "$dicts" | dmenu -l 20 -p "Dictionary:" )
+
+# Translate loop
+word=$(dmenu -l 20 -p "$sel_dict:" < /dev/null)
+while [ -n "$word" ]; do
+    translation=$(dict -d "$sel_dict" "$word")
+    word=$(echo "$translation" | dmenu -l 20 -p "$sel_dict:")
+done

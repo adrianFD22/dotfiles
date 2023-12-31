@@ -54,7 +54,7 @@ def get_daily_note():
             note_content = f.read()
         pass
 
-        note_content = "# Schedule\n\n" + note_content
+        note_content = "\n# Schedule\n\n" + note_content
         today_events = []
 
         # Get cyclic events
@@ -101,7 +101,7 @@ def get_daily_note():
             for event in today_events:
                 events_content = events_content + "- [ ] " + event.lstrip() + "\n"
 
-            events_content = events_content + "\n"
+            #events_content = events_content + "\n"
             note_content = events_content + note_content
 
         # Add daily notes section
