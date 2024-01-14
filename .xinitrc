@@ -21,6 +21,6 @@ xset r rate 300 60
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --no-xinerama --bg-scale "/home/adrian/Images/Wallpapers/Eugène Galien-Laloue - Le boulevard de la madeleine.jpg"
+feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/matria2.jpeg"
 
 exec dwm
