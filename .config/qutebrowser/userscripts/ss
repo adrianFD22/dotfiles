@@ -2,6 +2,7 @@
 
 # Open multiple tabs with different search engines for searching a term
 
+prompt=$QUTE_SELECTED_TEXT
 
 # Search engines to open
 declare -a engines_list=("arxiv" "scholar" "g" "ddg")
@@ -11,10 +12,10 @@ command=""
 
 for curr_engine in "${engines_list[@]}"
 do
-    command="${command} open -t ${curr_engine} $1;;"
+    command="${command} open -t ${curr_engine} $prompt;;"
 done
 
-command="${command} message-info 'Multiples seaches of $1'"
+command="${command} message-info 'Multiples seaches of $prompt'"
 
 # Return command
 echo "$command" >> "$QUTE_FIFO"

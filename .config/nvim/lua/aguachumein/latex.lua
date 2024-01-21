@@ -49,7 +49,7 @@ local function CompileBib()
             -- Compile bibtex
             biber_cmd = "biber --output-directory=" .. dir_name .. " --input-directory=".. dir_name .. " " .. dir_name .. "main"
             bibtex_cmd = "bibtex " .. dir_name .. "main"
-            command = bibtex_cmd .. " || " .. biber_cmd .. " &"
+            command = biber_cmd .. " || " .. bibtex_cmd .. " &"
             os.execute(command)
             print("Compile bib")
             return

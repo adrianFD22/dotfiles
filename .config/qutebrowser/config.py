@@ -97,17 +97,20 @@ config.bind('<Ctrl+Shift+J>', 'devtools')
 
 
 # Open scan shop
-shops = [
-    'https://www.amazon.es/s?k={}',
-    'https://link.springer.com/search?query={}'
-    ]
+#shops = [
+    #'https://www.amazon.es/s?k={}',
+    #'https://link.springer.com/search?query={}'
+    #]
+#
+#items = [
+    #'stichtenoth algebraic function fields',
+    #'atiyah macdonald commutative algebra'
+    #]
+#
+#config.bind('ss', command_open_shop_scan(shops, items))
 
-items = [
-    'stichtenoth algebraic function fields',
-    'atiyah macdonald commutative algebra'
-    ]
-
-config.bind('ss', command_open_shop_scan(shops, items))
+# Scientific search
+config.bind('ss', 'fake-key <Ctrl-a>;; spawn -u ss')
 
 # Pass
 config.bind('pm', 'spawn --userscript qute-pass')
