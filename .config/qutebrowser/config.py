@@ -115,6 +115,9 @@ config.bind('ss', 'fake-key <Ctrl-a>;; spawn -u ss')
 # Pass
 config.bind('pm', 'spawn --userscript qute-pass')
 
+# Select first input text
+#config.bind('gi', 'hint inputs --first;; fake-key <Ctrl-a>')
+
 
 # ----------- Settings -----------
 
@@ -125,14 +128,18 @@ config.source("gruvbox.py")
 config.set('tabs.position', 'right')
 
 # Dark mode
-c.colors.webpage.preferred_color_scheme         =  'dark'
-c.colors.webpage.darkmode.enabled               =  True
-c.colors.webpage.darkmode.algorithm             =  "lightness-cielab"
-c.colors.webpage.darkmode.threshold.foreground  =  150
-c.colors.webpage.darkmode.threshold.background  =  100
-c.colors.webpage.darkmode.policy.images         =  'smart-simple'
+config.set("colors.webpage.darkmode.enabled", True)
+c.colors.webpage.bg = "#282828"
+
+#c.colors.webpage.preferred_color_scheme         =  'dark'
+#c.colors.webpage.darkmode.enabled               =  True
+#c.colors.webpage.darkmode.algorithm             =  "lightness-cielab"
+#c.colors.webpage.darkmode.threshold.foreground  =  150
+#c.colors.webpage.darkmode.threshold.background  =  100
+#c.colors.webpage.darkmode.policy.images         =  'smart-simple'
+#c.colors.webpage.bg                             = '#282828'
+
 #c.colors.webpage.darkmode.grayscale.images      =  0.35
-c.colors.webpage.bg                             = '#282828'
 
 #config.set('colors.webpage.bg', '#282828') # Avoid qutebrowser white flashes
 
@@ -149,6 +156,7 @@ config.set('content.javascript.clipboard', 'access', 'ieeexplore.ieee.org')
 #c.fileselect.single_file.command = ["st", "-o", "{}", "-e", "nnn", "-p", "-"]
 
 # Categories
+#config.set('completion.open_categories', [])
 config.set('completion.open_categories', ['bookmarks', 'history'])
 
 # Search engines

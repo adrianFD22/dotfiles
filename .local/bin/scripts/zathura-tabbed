@@ -1,14 +1,17 @@
 #!/bin/bash
 
-curr_desktop=$(xdotool get_desktop)
-curr_desktop_tags=$((2 ** $curr_desktop))
+zathura "$@" &
 
-tab_win=$(xdotool search --desktop $curr_desktop_tags --classname --limit 1 "zathura-tabbed")
-
-if ! [ -n "$tab_win" ]; then
-    tabbed -n "zathura-tabbed" -c "zathura" "$@" "-e" &
-else
-    zathura "$@" -e "$tab_win" &
-    xdotool windowactivate $tab_win
-fi
-
+# zathura is broken when running inside of tabbed
+#
+#curr_desktop=$(xdotool get_desktop)
+#curr_desktop_tags=$((2 ** $curr_desktop))
+#
+#tab_win=$(xdotool search --desktop $curr_desktop_tags --classname --limit 1 "zathura-tabbed")
+#
+#if [ -z "$tab_win" ]; then
+    #tabbed -n "zathura-tabbed" -c "zathura" "$@" "-e" &
+#else
+    #zathura "$@" -e "$tab_win" &
+    #xdotool windowactivate "$tab_win"
+#fi

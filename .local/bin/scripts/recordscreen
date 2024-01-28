@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ffcast rec "$(date)".mp4
