@@ -110,13 +110,13 @@ config.bind('<Ctrl+Shift+J>', 'devtools')
 #config.bind('ss', command_open_shop_scan(shops, items))
 
 # Scientific search
-config.bind('ss', 'fake-key <Ctrl-a>;; spawn -u ss')
+config.bind('ss', 'fake-key <Ctrl-a>;; cmd-later 1 nop;; cmd-later 1 spawn -u ss')
 
 # Pass
 config.bind('pm', 'spawn --userscript qute-pass')
 
 # Select first input text
-#config.bind('gi', 'hint inputs --first;; fake-key <Ctrl-a>')
+config.bind('gi', 'hint inputs --first;; cmd-later 1 fake-key <Ctrl-a><Ctrl-x>')
 
 
 # ----------- Settings -----------

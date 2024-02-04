@@ -1,0 +1,18 @@
+#!/bin/bash
+
+format="BG:#cc0000\tSEC:1\t"
+
+if [ "$(pgrep toggle-record | wc -l)" -ge 3 ]; then
+    # End recording
+    pkill -fxn '(/\S+)*ffmpeg\s.*\sx11grab\s.*'
+
+    # End notification
+    echo -e "${format}End recording" > $XNOTIFY_FIFO
+else
+    # Start notification
+    echo -e "${format}Record screen" > $XNOTIFY_FIFO
+    sleep 1
+
+    # Record screen
+    ffcast rec "$(date)".mp4
+fi;
