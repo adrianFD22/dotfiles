@@ -92,6 +92,10 @@ update-sunday () {
     yay -Syu
 }
 
+recompile-zathura () {
+    $(cd "/home/adrian/.repos/zathura-pdf-mupdf" && sudo meson setup --reconfigure build && cd build && sudo ninja install)
+}
+
 sunday-routine () {
 
     # Check internet connection

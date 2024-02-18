@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Extract data
+author=$(pdfinfo "$1" | grep -i author | cut -f2 -d: | xargs )
+title=$(pdfinfo "$1" | grep -i title | cut -f2 -d: | xargs )
+
+# If data is available, rename
+if [ -n "$author" ] || [ -n "$title" ]; then
+    name="$author - $title.pdf"
+
+    # Confirm name
+    read -p "Rename to $name? " -n 1 -r; echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        mv "$1" "$name"
+    fi
+fi

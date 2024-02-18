@@ -1,0 +1,13 @@
+#!/bin/sh
+
+filename="${1%.*}"
+extension="${1##*.}"
+
+# Check filetype
+if [ "$extension" != "md" ]; then
+    echo "Invalid filetype"
+    exit 0
+fi
+
+# Compile markdown
+pandoc -i "$filename".md -o "$filename".pdf    # Convert markdown to pdf

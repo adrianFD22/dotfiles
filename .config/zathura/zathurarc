@@ -1,9 +1,9 @@
 # General settings
 set selection-clipboard clipboard
 set incremental-search true
-set guioptions none
-set window-title-page
-set window-title-basename
+set guioptions s
+set window-title-page false
+set window-title-basename false
 
 # Colorscheme
 include colorschemerc
