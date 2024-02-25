@@ -6,7 +6,9 @@ cprm () {
     for file in "$@"
     do
         echo "Copying $file..."
-        rclone copyto "$file" "adrianGoogleDrive:Zona reMarkable/$file"
+        dir_name=$(dirname "$file")
+        file_name=$(basename "$file")
+        $(cd "$dir_name" && rclone copyto "./$file_name" "adrianGoogleDrive:Zona reMarkable/$file_name")
     done
 
     echo "End"
@@ -17,7 +19,9 @@ mvrm () {
     for file in "$@"
     do
         echo "Moving $file..."
-        rclone moveto "$file" "adrianGoogleDrive:Zona reMarkable/$file"
+        dir_name=$(dirname "$file")
+        file_name=$(basename "$file")
+        $(cd "$dir_name" && rclone moveto "./$file_name" "adrianGoogleDrive:Zona reMarkable/$file_name")
     done
 
     echo "End"

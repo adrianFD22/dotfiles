@@ -1,0 +1,10 @@
+#!/bin/sh
+
+notes_dir="
+    /home/adrian/Notes
+    /home/adrian/Work/LaTeX
+"
+
+for curr_dir in $notes_dir; do
+    rclone sync --links "$curr_dir" "adrianDropbox:$curr_dir"
+done
