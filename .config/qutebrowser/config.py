@@ -116,7 +116,10 @@ config.bind('ss', 'fake-key <Ctrl-a>;; cmd-later 1 nop;; cmd-later 1 spawn -u ss
 config.bind('pm', 'spawn --userscript qute-pass')
 
 # Select first input text
-config.bind('gi', 'hint inputs --first;; cmd-later 1 fake-key <Ctrl-a><Ctrl-x>')
+config.bind('gi', 'hint inputs --first;; cmd-later 3 fake-key <Ctrl-a><Ctrl-x>')
+
+# Select first input text
+config.bind('Y', 'fake-key <Ctrl-a><Ctrl-c>')
 
 
 # ----------- Settings -----------
