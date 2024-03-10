@@ -85,13 +85,6 @@ dotfiles-sunday () {
     fi;
 }
 
-update-sunday () {
-    echo "> Update system"
-    echo
-
-    yay -Syu
-}
-
 recompile-zathura () {
     $(cd "/home/adrian/.repos/zathura-pdf-mupdf" && sudo meson setup --reconfigure build && cd build && sudo ninja install)
 }
@@ -105,10 +98,14 @@ sunday-routine () {
     fi
 
     # Update dotfiles
-    echo "> Update dotfiles"
-    echo
+    echo; echo "> Update dotfiles";echo
     dotfiles-sunday
 
+    # Syncfiles
+    echo; echo "> Syncfiles";echo
+    syncfiles
+
     # Update system
-    update-sunday
+    echo; echo "> Update system"; echo
+    yay -Syu
 }

@@ -5,7 +5,7 @@
 prompt=$QUTE_SELECTED_TEXT
 
 # Search engines to open
-declare -a engines_list=("arxiv" "scholar" "g" "ddg")
+declare -a engines_list=("arxiv" "scholar" "g")
 
 # Create the qtb command
 command=""

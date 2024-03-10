@@ -65,6 +65,9 @@ vim.filetype.add({
 
         -- Tex
         tex = "tex",
-        sty = "tex"
+        sty = "tex",
+
+        -- Python
+        sage = "python",
 	}
 })

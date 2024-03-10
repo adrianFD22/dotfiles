@@ -10,7 +10,7 @@ dwmblocks &
 clean-qutebrowser-cache
 
 # Open daily notes
-terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_events.csv"
+terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_events.csv" &
 
 # Set default monitor configuration
 autorandr default

@@ -6,5 +6,5 @@ notes_dir="
 "
 
 for curr_dir in $notes_dir; do
-    rclone sync --links "$curr_dir" "adrianDropbox:$curr_dir"
+    rclone -v sync --links "$curr_dir" "adrianDropbox:$curr_dir"
 done

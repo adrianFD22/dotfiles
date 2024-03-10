@@ -85,7 +85,10 @@ def get_daily_note():
                 if str(today.date()) == event_date:
                     today_events.append(event)
                 elif str(today.date()) > event_date:
-                    today_events.append(event_date + ": " + event.lstrip())
+                    if event_date == "":
+                        today_events.append(event.lstrip())
+                    else:
+                        today_events.append(event_date + ": " + event.lstrip())
                 else:
                     not_today_events.append(row)
 
@@ -97,7 +100,8 @@ def get_daily_note():
 
         # Add today s events list to string template
         if len(today_events) != 0:
-            events_content = "# Events\n"
+            #events_content = "# Events\n"
+            events_content = ""
             for event in today_events:
                 events_content = events_content + "\t- [ ] " + event.lstrip() + "\n"
 
