@@ -4,7 +4,7 @@ latex_dir="/home/adrian/Work/LaTeX/"
 
 # Select project
 #proj_dir=$(find $latex_dir -type d -exec sh -c '[ -f "$0"/main.tex ] && [ -f "$0"/main.pdf ]' '{}' \; -print | sed -e "s+^$latex_dir++" | sort | dmenu -i -l 20 -p "LaTeX:" )
-proj_dir=$(fd 'main.pdf' --strip-cwd-prefix --base-directory $latex_dir -x echo '{//}' | sort | dmenu -i -l 20 -p "LaTeX:"  )
+proj_dir=$(fd 'main.pdf' --strip-cwd-prefix --base-directory $latex_dir -x echo '{//}' | sort -r | dmenu -i -l 20 -p "LaTeX:"  )
 
 # Check if project exists
 proj_dir="$latex_dir$proj_dir"
@@ -15,4 +15,5 @@ fi
 
 # Open editor and pdf viewer
 xdg-open "$proj_dir/main.pdf"
-terminal-init "cd \"$proj_dir\"; nvim main.tex"
+sleep 0.09
+terminal-init "cd \"$proj_dir\"; nvim main.tex" &

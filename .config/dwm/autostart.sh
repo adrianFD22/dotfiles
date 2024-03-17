@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Open daily notes
+terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_events.csv" &
+
 # Disable bluetooth
 bluetoothctl power off
 
@@ -8,9 +11,6 @@ dwmblocks &
 
 # Clean qutebrowser cache
 clean-qutebrowser-cache
-
-# Open daily notes
-terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_events.csv" &
 
 # Set default monitor configuration
 autorandr default

@@ -86,7 +86,7 @@ dotfiles-sunday () {
 }
 
 recompile-zathura () {
-    $(cd "/home/adrian/.repos/zathura-pdf-mupdf" && sudo meson setup --reconfigure build && cd build && sudo ninja install)
+    (cd "/home/adrian/.repos/zathura-pdf-mupdf" && sudo meson setup --reconfigure build && cd build && sudo ninja install)
 }
 
 sunday-routine () {
@@ -108,4 +108,12 @@ sunday-routine () {
     # Update system
     echo; echo "> Update system"; echo
     yay -Syu
+
+    # Recompile zathura
+    echo; echo "> Recompile zathura"; echo
+    recompile-zathura
+
+    # Remove orphans
+    echo; echo "> Remove orphans"; echo
+    sudo pacman -Rs $(pacman -Qtdq)
 }

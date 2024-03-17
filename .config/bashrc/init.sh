@@ -69,3 +69,16 @@ gap () {
 term () {
     $TERMINAL & disown
 }
+
+# sagemath
+sage () {
+    if [ -z "$1" ]; then
+        /usr/bin/sage
+    else
+        /usr/bin/sage "$1"
+
+        if [ -f "$1" ]; then
+            rm "$1".py
+        fi;
+    fi;
+}
