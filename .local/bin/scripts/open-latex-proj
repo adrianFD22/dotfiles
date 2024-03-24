@@ -15,5 +15,5 @@ fi
 
 # Open editor and pdf viewer
 xdg-open "$proj_dir/main.pdf"
-sleep 0.09
+sleep 0.07
 terminal-init "cd \"$proj_dir\"; nvim main.tex" &
