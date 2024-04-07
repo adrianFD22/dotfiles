@@ -91,6 +91,10 @@ recompile-zathura () {
     sudo pacman -R zathura
 }
 
+update-nvim-plugins () {
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+}
+
 sunday-routine () {
 
     # Check internet connection
@@ -118,4 +122,8 @@ sunday-routine () {
     # Recompile zathura
     echo; echo "> Recompile zathura"; echo
     recompile-zathura
+
+    # Update neovim plugins
+    echo; echo "> Update neovim plugins"; echo
+    update-nvim-plugins
 }
