@@ -21,6 +21,6 @@ xset r rate 300 60
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/sanic.jpg"
+feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/sanic_dark.png"
 
 exec dwm
