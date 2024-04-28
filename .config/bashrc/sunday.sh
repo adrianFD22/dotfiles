@@ -29,6 +29,7 @@ dotfiles-sunday () {
         "/home/adrian/.config/i3/"
         "/home/adrian/.config/nnn/"
         "/home/adrian/.config/nvim/"
+        "/home/adrian/.config/pandoc/"
         "/home/adrian/.config/polybar/"
         "/home/adrian/.config/qutebrowser/"
         "/home/adrian/.config/tmux/"

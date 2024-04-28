@@ -10,4 +10,4 @@ if [ "$extension" != "md" ]; then
 fi
 
 # Compile markdown
-pandoc -i "$filename".md -o "$filename".pdf    # Convert markdown to pdf
+pandoc -i "$filename".md -o "$filename".pdf --lua-filter="/home/adrian/.config/pandoc/columns.lua"
