@@ -1,5 +1,16 @@
 #!/bin/bash
 
-# Find commands in the cheeatsheet file
-cheatsheet_file="/home/adrian/Notes/cheatsheet.md"
-grep "$1" "$cheatsheet_file"
+# Search in the cheatsheet folder
+# usage: cheatsheet [file] search-term
+
+cheatsheet_folder="/home/adrian/Notes/Lists/Cheatsheets/"
+
+if [ "$#" -le 1 ]; then                             # If no options are given, search in the general file
+    grep -i "$1" "$cheatsheet_folder/general.md"
+else                                                # If file is given, seach in file.md
+    if [ ! -f "$cheatsheet_folder/$1.md" ]; then        # If file does not exists, send error
+        >&2 echo "Invalid file"
+        exit 1
+    fi
+    grep -i "$2" "$cheatsheet_folder/$1.md"
+fi
