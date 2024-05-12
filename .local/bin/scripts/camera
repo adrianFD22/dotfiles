@@ -1,11 +1,22 @@
 #!/bin/bash
 
+# Open camera, resize and move to corner right
+
+# Get dimensions of screen
+dimensions=$(xdpyinfo 2> /dev/null | grep dimensions: | awk '{print $2}')
+screen_width=$(echo "$dimensions" | cut -dx -f1)
+screen_height=$(echo "$dimensions" | cut -dx -f2)
+
+# Set new size
+window_height=250
+window_width=330
+
 # Open camera
 xawtv -c /dev/video0 &
 
 # Resize
 sleep 1
 id=$(xdotool search --class "Xawtv")
-xdotool windowsize "$id" 333 250
-xdotool windowmove "$id" 1020 505
+xdotool windowsize "$id" $window_width $window_height
+xdotool windowmove "$id" $(( "$screen_width" - "$window_width" )) $(( "$screen_height" - "$window_height" ))
 xdotool windowstate --add STICKY "$id"

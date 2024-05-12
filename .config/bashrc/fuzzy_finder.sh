@@ -12,9 +12,10 @@ fcd() {
     builtin cd "$(fzf-dir)"
 }
 
-fhistory() {
+fhist() {
   local output opts script
-  opts="--height ${FZF_TMUX_HEIGHT:-40%} --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-} -n2..,.. --scheme=history --bind=ctrl-r:toggle-sort ${FZF_CTRL_R_OPTS-} +m --read0"
+  #opts="--height ${FZF_TMUX_HEIGHT:-40%} --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-} -n2..,.. --scheme=history --bind=ctrl-r:toggle-sort ${FZF_CTRL_R_OPTS-} +m --read0"
+  opts="-n2..,.. --scheme=history --bind="alt-j:down,alt-k:up" ${FZF_CTRL_R_OPTS-} +m --read0"
   script='BEGIN { getc; $/ = "\n\t"; $HISTCOUNT = $ENV{last_hist} + 1 } s/^[ *]//; print $HISTCOUNT - $. . "\t$_" if !$seen{$_}++'
   output=$(
     builtin fc -lnr -2147483648 |
@@ -22,7 +23,7 @@ fhistory() {
       FZF_DEFAULT_OPTS="$opts" $(__fzfcmd) --query "$READLINE_LINE"
   ) || return
   READLINE_LINE=${output#*$'\t'}
-  echo $READLINE_LINE
+  echo -n $READLINE_LINE | xclip -selection clipboard
   #if [[ -z "$READLINE_POINT" ]]; then
      #eval "$READLINE_LINE"
   #else

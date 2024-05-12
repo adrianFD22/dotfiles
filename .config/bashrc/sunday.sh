@@ -116,9 +116,10 @@ sunday-routine () {
     echo; echo "> Update system"; echo
     yay -Syu
 
-    # Remove orphans
+    # Clean unused packages
     echo; echo "> Remove orphans"; echo
     sudo pacman -Rs $(pacman -Qtdq)
+    paccache -rk 3
 
     # Recompile zathura
     echo; echo "> Recompile zathura"; echo

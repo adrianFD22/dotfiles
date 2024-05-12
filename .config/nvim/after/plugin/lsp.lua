@@ -5,7 +5,8 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
-  --lsp_zero.default_keymaps({buffer = bufnr})
+  -- https://lsp-zero.netlify.app/v3.x/language-server-configuration.html
+  lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
 require('mason').setup({})

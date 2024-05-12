@@ -1,8 +1,9 @@
 #!/bin/bash
 
+# The commented part of the script is broken since Jan 2024 approximately. Tabbed freezes search mode (among other bugs) until fullscreen is set
 zathura "$@" &
 
-# zathura is broken when running inside of tabbed
+## zathura is broken when running inside of tabbed
 #
 #curr_desktop=$(xdotool get_desktop)
 #curr_desktop_tags=$((2 ** $curr_desktop))

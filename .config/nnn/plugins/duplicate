@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Run terminal in the current directory and execute nnn
+nohup terminal-init "cd $2; n" &> /dev/null &

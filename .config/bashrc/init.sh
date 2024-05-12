@@ -64,11 +64,6 @@ gap () {
     /usr/bin/gap -b -L /home/adrian/Work/GAP/Workspaces/vanilla "$@"
 }
 
-# Spawn terminal in the same path
-term () {
-    $TERMINAL & disown
-}
-
 # sagemath
 sage () {
     if [ -z "$1" ]; then
@@ -79,5 +74,18 @@ sage () {
         if [ -f "$1" ]; then
             rm "$1".py
         fi;
+    fi;
+}
+
+# Hour conversion
+hour () {
+    if [ "$1" == -h ]; then
+        echo "usage: hour timezone hour_to_convert"
+    #elif [ "$1" == -r ]; then
+        ##date --date="TZ=\"$1\" $2" +"%H:%M"
+        ##curr_TZ=$(date +%Z)
+        #date --date="TZ=\"$1\" $2" +"%H:%M"
+    else
+        date --date="$2 $1" +"%H:%M"
     fi;
 }

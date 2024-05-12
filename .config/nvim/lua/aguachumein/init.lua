@@ -101,6 +101,14 @@ return require('packer').startup(function(use)
         'junegunn/vim-easy-align'
     }
 
+    -- Comment
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
     -- Lean
     --use {
         --'Julian/lean.nvim',

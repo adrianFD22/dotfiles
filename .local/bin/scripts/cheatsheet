@@ -5,11 +5,12 @@
 
 cheatsheet_folder="/home/adrian/Notes/Lists/Cheatsheets/"
 
-if [ "$#" -le 1 ]; then                             # If no options are given, search in the general file
+if [ "$#" -le 1 ]; then                                 # If no options are given, search in the general file
     grep -i "$1" "$cheatsheet_folder/general.md"
-else                                                # If file is given, seach in file.md
-    if [ ! -f "$cheatsheet_folder/$1.md" ]; then        # If file does not exists, send error
-        >&2 echo "Invalid file"
+else                                                    # If file is given, seach in file.md
+    if [ ! -f "$cheatsheet_folder/$1.md" ]; then            # If file does not exists, send error
+        echo -n "Invalid file. Available files: " >&2
+        ls $cheatsheet_folder >&2
         exit 1
     fi
     grep -i "$2" "$cheatsheet_folder/$1.md"

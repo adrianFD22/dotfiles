@@ -62,5 +62,5 @@ require'nvim-treesitter.configs'.setup {
 
 -- Remaps
 vim.keymap.set("n", "<Leader>tsp", function() vim.cmd("TSPlaygroundToggle") end) 	-- Toggle playground
-vim.keymap.set("n", "<Leader>tsu", function() vim.cmd("TSUpdate") end) 			-- Update
+--vim.keymap.set("n", "<Leader>tsu", function() vim.cmd("TSUpdate") end) 			-- Update
 
