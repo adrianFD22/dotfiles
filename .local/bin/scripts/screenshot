@@ -3,7 +3,7 @@
 # Screen screenshot
 
 screenshots_dir="/home/adrian/Images/Screenshots"
-screenshot_name=$(printf 'screenshot_%s.png' "$(date +'%G-%m-%d-%T')")
+screenshot_name=$(printf 'screenshot %s.png' "$(date +'%G-%m-%d (%T)')")
 
 # If any parameter is given, full screenshot
 [ -z "$1" ] && flag_selection="-s"
