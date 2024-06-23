@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Description: run a notication when an already running process ends.
+
+# Get process
+ps_output=$(ps aux | tail -n +2 | tac | dmenu -p "Notify:" -l 20 | tr -s ' ')
+pid_to_notify=$(echo "$ps_output" | cut -d' ' -f 2)
+name_to_notify=$(echo "$ps_output" |  cut -d' ' -f "11-")
+
+kill -0 "$pid_to_notify" || exit    # Check if process exists
+
+# On process end, notify
+# https://stackoverflow.com/questions/76028781/how-to-wait-for-a-non-child-process
+tail --pid "$pid_to_notify" -f /dev/null & wait $!
+printf 'End:    %s' "$name_to_notify" > "$XNOTIFY_FIFO"

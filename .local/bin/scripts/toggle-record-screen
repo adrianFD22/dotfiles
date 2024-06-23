@@ -15,5 +15,5 @@ else
     sleep 1
 
     # Record screen
-    ffcast rec "$(date)".mp4
+    ffcast rec "recording $(date +'%G-%m-%d (%T)').mp4"
 fi;

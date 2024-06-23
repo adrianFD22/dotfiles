@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Get differences between two tex files using latexdiff-git.
+# Usage: latexdiff file1.tex file2.tex
+
+diff_name=$(basename "$1" )
+diff_name=${diff_name%.tex}_diff.tex
+
+echo "\providecommand{\DIFdel}[1]{}" > "$diff_name"                 # Format delete text
+echo "\providecommand{\DIFadd}[1]{{\color{blue}#1}}" >> "$diff_name"   # Format added text
+latexdiff-git "$1" "$2" >> "$diff_name"
+
+for _ in seq 2; do # Run twice because LaTeX
+    pdflatex -interaction=nonstopmode -output-directory="." "$diff_name" &> /dev/null
+done
+
+# Clean junk
+rm -f "${diff_name%.tex}.aux"
+rm -f "${diff_name%.tex}.log"
+rm -f "$diff_name"

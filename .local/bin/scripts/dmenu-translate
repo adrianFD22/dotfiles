@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# Select dictionary
-dicts="fd-eng-spa
-fd-spa-eng"
+# Description: translate using https://github.com/soimort/translate-shell
 
-sel_dict=$(echo "$dicts" | dmenu -l 20 -p "Dictionary:" )
+word_to_translate="$(printf "fr:es\nen:es\nes:fr\nen:es" | dmenu -p "Translate:" -l 20)"
 
-# Translate loop
-word=$(dmenu -l 20 -p "$sel_dict:" < /dev/null)
-while [ -n "$word" ]; do
-    translation=$(dict -d "$sel_dict" "$word")
-    word=$(echo "$translation" | dmenu -l 20 -p "$sel_dict:")
+while [ -n "$word_to_translate" ]; do
+    word_to_translate="$(/home/adrian/.repos/translate-shell/translate -no-ansi $word_to_translate | dmenu -p "Translate:" -l 20)"
 done

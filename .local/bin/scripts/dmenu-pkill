@@ -1,5 +1,7 @@
 #!/bin/sh
 
-pid_to_kill=$(ps aux | tail -n +2 | tac | dmenu -p "Kill:" -l 20 | awk '{print $2}')
+# Description: select running process with dmenu and kill it
+
+pid_to_kill=$(ps aux | tail -n +2 | tac | dmenu -sb "#cc0000" -p "Kill:" -l 20 | awk '{print $2}')
 
 kill $pid_to_kill
