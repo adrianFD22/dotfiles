@@ -4,6 +4,7 @@ notes_dir="
     /home/adrian/Notes
     /home/adrian/Work/LaTeX
     /home/adrian/Images/Albums
+    /home/adrian/Documents
 "
 
 for curr_dir in $notes_dir; do
