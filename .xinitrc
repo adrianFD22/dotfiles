@@ -4,8 +4,8 @@
 #autorandr default
 
 # On startup settings
-amixer set Master mute
-pulsemixer --set-volume 50
+#amixer set Master mute
+#pulsemixer --set-volume 50
 xdotool mousemove 1365 767
 xrdb ~/.Xresources
 
@@ -16,11 +16,12 @@ mkfifo $XNOTIFY_FIFO
 xnotify -s 0 0<>$XNOTIFY_FIFO &
 
 # Keyboard and mouse
+setxkbmap -layout es
 setxkbmap -option caps:swapescape
 xset r rate 300 60
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/sanic_dark.png"
+feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/hendrix-purple.jpg"
 
 exec dwm

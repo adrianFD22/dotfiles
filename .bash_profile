@@ -7,6 +7,7 @@
 
 # Environment variables
 export DOWNLOADS="~/Downloads"
+export GTK_THEME="Adwaita:dark"
 #export QUTE_QT_WRAPPER=PyQt5   # Use Qt5 instead of Qt6
 
 # PATH

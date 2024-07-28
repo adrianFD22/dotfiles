@@ -1,3 +1,8 @@
 #!/bin/bash
-#
-printf "%s🔅" $(xbacklight -get | sed "s/\.[[:digit:]]*//")
+
+handler="/sys/class/backlight/intel_backlight"
+brightness=$(cat "$handler/brightness")
+max_brightness=$(cat "$handler/max_brightness")
+brightness_per=$(( 100 * $brightness / $max_brightness ))
+
+printf "%s🔅" "$brightness_per"

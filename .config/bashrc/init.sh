@@ -27,6 +27,7 @@ alias vim='nvim'
 alias clear="unset PROMPT_COMMAND; clear -x; PROMPT_COMMAND='export PROMPT_COMMAND=echo'"
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias fzf='fzf --bind="alt-j:down,alt-k:up"'
+alias latexdiff='/home/adrian/.local/bin/scripts/latexdiff'
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -61,7 +62,8 @@ ex () {
 
 # GAP
 gap () {
-    /usr/bin/gap -b -L /home/adrian/Work/GAP/Workspaces/vanilla "$@"
+    #/usr/bin/gap -b -L /home/adrian/Work/GAP/Workspaces/vanilla "$@"
+    /usr/bin/gap -b "$@"
 }
 
 # sagemath

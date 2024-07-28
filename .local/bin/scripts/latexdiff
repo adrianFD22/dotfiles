@@ -4,17 +4,23 @@
 # Usage: latexdiff file1.tex file2.tex
 
 diff_name=$(basename "$1" )
-diff_name=${diff_name%.tex}_diff.tex
+diff_name=${diff_name%.tex}_diff
+diff_name_tex="${diff_name}.tex"
+diff_name_pdf="${diff_name}.pdf"
 
-echo "\providecommand{\DIFdel}[1]{}" > "$diff_name"                 # Format delete text
-echo "\providecommand{\DIFadd}[1]{{\color{blue}#1}}" >> "$diff_name"   # Format added text
-latexdiff-git "$1" "$2" >> "$diff_name"
+temp_dir=$(mktemp -d)
+
+cp "$1" "$temp_dir"
+cp "$2" "$temp_dir"
+
+echo "\providecommand{\DIFdel}[1]{}" > "$temp_dir/$diff_name_tex"                   # Format delete text
+echo "\providecommand{\DIFadd}[1]{{\color{blue}#1}}" >> "$temp_dir/$diff_name_tex"  # Format added text
+latexdiff "$1" "$2" >> "$temp_dir/$diff_name_tex"
 
 for _ in seq 2; do # Run twice because LaTeX
-    pdflatex -interaction=nonstopmode -output-directory="." "$diff_name" &> /dev/null
+    pdflatex -interaction=nonstopmode -output-directory="$temp_dir" "$temp_dir/$diff_name_tex" &> /dev/null
 done
 
 # Clean junk
-rm -f "${diff_name%.tex}.aux"
-rm -f "${diff_name%.tex}.log"
-rm -f "$diff_name"
+mv "$temp_dir/$diff_name_pdf" .
+rm -r "$temp_dir"

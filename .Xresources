@@ -26,7 +26,7 @@ xnotify.gap:            10
 xnotify.geometry:       -10-10
 
 ! Colorscheme: gruvbox
-*.background:           #282828
+ *.background:           #282828
 *.border:               #282828
 *.foreground:           #fbf1c7
 

@@ -1,4 +1,6 @@
 
+--require("plugins")
+
 -- Clean loaded modules
 ModulesToClean = {"aguachumein"}
 

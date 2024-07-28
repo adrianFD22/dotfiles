@@ -37,7 +37,6 @@ dotfiles-sunday () {
         "/home/adrian/.config/dmenu/"
         "/home/adrian/.config/dwmblocks/"
         "/home/adrian/.config/dwm/"
-        "/home/adrian/.config/st/"
         "/home/adrian/.config/picom"
         "/home/adrian/.local/bin/scripts"
     )
@@ -45,6 +44,7 @@ dotfiles-sunday () {
     declare -a dotfile_files=(
         "/home/adrian/.gitignore"
         "/home/adrian/.xinitrc"
+        "/home/adrian/.xawtv"
         "/home/adrian/.Xresources"
         "/home/adrian/.bash_profile"
         "/home/adrian/.bashrc"

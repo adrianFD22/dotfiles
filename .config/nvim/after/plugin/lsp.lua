@@ -29,4 +29,3 @@ cmp.setup({
     ['<A-k>'] = cmp_action.luasnip_shift_supertab(),
   })
 })
-

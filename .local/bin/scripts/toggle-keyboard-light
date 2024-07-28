@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Toggles keyboard backlight
+
+curr_light=$(cat /sys/class/leds/kbd_backlight/brightness)
+
+if [ $curr_light = 0 ]; then
+    new_value=1
+else
+    new_value=0
+fi;
+
+echo $new_value > /sys/class/leds/kbd_backlight/brightness

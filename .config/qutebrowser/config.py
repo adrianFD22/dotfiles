@@ -113,7 +113,7 @@ config.bind('<Ctrl+Shift+J>', 'devtools')
 config.bind('ss', 'fake-key <Ctrl-a>;; cmd-later 1 nop;; cmd-later 1 spawn -u ss')
 
 # Pass
-config.bind('pm', 'spawn --userscript qute-pass')
+#config.bind('pm', 'spawn --userscript qute-pass')
 
 # Select first input text
 config.bind('gi', 'hint inputs --first;; cmd-later 3 fake-key <Ctrl-a><Ctrl-x>')
