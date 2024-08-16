@@ -18,7 +18,7 @@ if [ $charging = "Charging" ]; then
 elif [ $charging = "Full" ]; then
     if [[ -f $temp_full ]]; then
         rm $temp_full
-        echo -e "TAG:battery\tFully charged⚡" > $XNOTIFY_FIFO
+        echo -e "SEC:3\tTAG:battery\tFully charged⚡" > $XNOTIFY_FIFO
     fi
     printf "%s🔋" $battery
 
