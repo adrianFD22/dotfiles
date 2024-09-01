@@ -25,19 +25,19 @@ dotfiles-sunday () {
     declare -a dotfile_dirs=(
         "/home/adrian/.config/alacritty/"
         "/home/adrian/.config/bashrc/"
+        "/home/adrian/.config/dmenu/"
+        "/home/adrian/.config/dwmblocks/"
+        "/home/adrian/.config/dwm/"
         "/home/adrian/.config/fzf/"
         "/home/adrian/.config/i3/"
         "/home/adrian/.config/nnn/"
         "/home/adrian/.config/nvim/"
         "/home/adrian/.config/pandoc/"
+        "/home/adrian/.config/picom/"
         "/home/adrian/.config/polybar/"
         "/home/adrian/.config/qutebrowser/"
         "/home/adrian/.config/tmux/"
         "/home/adrian/.config/zathura/"
-        "/home/adrian/.config/dmenu/"
-        "/home/adrian/.config/dwmblocks/"
-        "/home/adrian/.config/dwm/"
-        "/home/adrian/.config/picom"
         "/home/adrian/.local/bin/scripts"
     )
 
@@ -51,6 +51,7 @@ dotfiles-sunday () {
         "/home/adrian/.inputrc"
         "/home/adrian/.config/lesskey"
         "/home/adrian/.config/mimeapps.list"
+        "/home/adrian/.config/ipython_config.py"
     )
 
     echo "Add dirs"

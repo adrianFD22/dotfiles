@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd "/home/adrian/Work/SageMath/Matemáticas Básicas"
+source "venv/bin/activate"
+jupyter lab --browser=firefox
