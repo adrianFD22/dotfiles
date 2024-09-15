@@ -10,7 +10,7 @@ terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_eve
 bluetoothctl power off
 
 # Run picom
-picom &
+# picom &
 
 # Clean qutebrowser cache
 clean-qutebrowser-cache
