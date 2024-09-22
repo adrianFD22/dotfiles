@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source /home/adrian/.repos/rmview/bin/activate
+rmview /home/adrian/.repos/rmview/config.json &
