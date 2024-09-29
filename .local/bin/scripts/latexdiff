@@ -3,7 +3,11 @@
 # Get differences between two tex files using latexdiff-git.
 # Usage: latexdiff file1.tex file2.tex
 
-# TODO: add help flag
+# In case of wrong number of arguments
+if [ "$#" != 2 ]; then
+    echo "usage: latexdiff old.tex new.tex"
+    exit
+fi
 
 diff_name=$(basename "$1" )
 diff_name=${diff_name%.tex}_diff
@@ -14,13 +18,13 @@ temp_dir=$(mktemp -d)
 
 cp "$1" "$temp_dir"
 cp "$2" "$temp_dir"
-cp "ref.bib" $temp_dir  # TODO: provisional
+cp "*.bib" $temp_dir
 
 echo "\providecommand{\DIFdel}[1]{}" > "$temp_dir/$diff_name_tex"                   # Format delete text
 echo "\providecommand{\DIFadd}[1]{{\color{blue}#1}}" >> "$temp_dir/$diff_name_tex"  # Format added text
 latexdiff "$1" "$2" >> "$temp_dir/$diff_name_tex"
 
-pdflatex -interaction=nonstopmode -output-directory="$temp_dir" "$temp_dir/$diff_name_tex" &> /dev/null # TODO: ugly code
+pdflatex -interaction=nonstopmode -output-directory="$temp_dir" "$temp_dir/$diff_name_tex" &> /dev/null
 biber "$temp_dir/$diff_name"
 
 for _ in seq 2; do # Run twice because LaTeX

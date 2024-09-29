@@ -24,7 +24,7 @@ local function CompileMainTex()
         file_name = dir_name .. "/main.tex"
         if file_exists(file_name) then
             -- Compile latex
-            command = "pdflatex -output-directory='" .. dir_name .. "' '" .. file_name .. "' > /dev/null &"
+            command = "pdflatex -shell-escape -output-directory='" .. dir_name .. "' '" .. file_name .. "' > /dev/null &"
             os.execute(command)
             print("Compile main.tex")
             return

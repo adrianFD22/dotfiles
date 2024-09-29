@@ -129,4 +129,8 @@ sunday-routine () {
     # Update nvim-treesitter
     echo; echo "> Update nvim-treesitter"; echo
     nvim --headless -c 'TSUpdate | q'
+
+    # Clean reMarkable swapzone
+    echo; echo "> Clean reMarkable swap folder"; echo
+    rmrm
 }
