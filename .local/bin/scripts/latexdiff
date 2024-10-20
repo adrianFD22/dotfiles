@@ -18,14 +18,14 @@ temp_dir=$(mktemp -d)
 
 cp "$1" "$temp_dir"
 cp "$2" "$temp_dir"
-cp "*.bib" $temp_dir
+#cp *.bib $temp_dir
 
 echo "\providecommand{\DIFdel}[1]{}" > "$temp_dir/$diff_name_tex"                   # Format delete text
 echo "\providecommand{\DIFadd}[1]{{\color{blue}#1}}" >> "$temp_dir/$diff_name_tex"  # Format added text
 latexdiff "$1" "$2" >> "$temp_dir/$diff_name_tex"
 
 pdflatex -interaction=nonstopmode -output-directory="$temp_dir" "$temp_dir/$diff_name_tex" &> /dev/null
-biber "$temp_dir/$diff_name"
+biber "$temp_dir/$diff_name" &> /dev/null
 
 for _ in seq 2; do # Run twice because LaTeX
     pdflatex -interaction=nonstopmode -output-directory="$temp_dir" "$temp_dir/$diff_name_tex" &> /dev/null
@@ -33,4 +33,5 @@ done
 
 # Clean junk
 mv "$temp_dir/$diff_name_pdf" .
-rm -r "$temp_dir"
+#rm -r "$temp_dir"
+echo $temp_dir
