@@ -6,7 +6,10 @@ reMarkable_dir="adrianGoogleDrive:Zona reMarkable"
 rclone ls "$reMarkable_dir" | cut --complement -d" " -f4
 
 # Delete
-echo ;read -p "Delete? " -n 1 -r; echo
+echo
+read -p "Delete? "
+echo
+
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     rclone delete "$reMarkable_dir"
 fi
