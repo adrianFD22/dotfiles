@@ -28,6 +28,7 @@ alias clear="unset PROMPT_COMMAND; clear -x; PROMPT_COMMAND='export PROMPT_COMMA
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias fzf='fzf --bind="alt-j:down,alt-k:up"'
 alias latexdiff='/home/adrian/.local/bin/scripts/latexdiff'
+alias rsource='source /home/adrian/.bashrc'
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -71,11 +72,10 @@ sage () {
     if [ -z "$1" ]; then
         /usr/bin/sage
     else
+        trap "rm -f $1.py" SIGINT   # Remove auxiliary file when complete
         /usr/bin/sage "$1"
-
-        if [ -f "$1" ]; then
-            rm "$1".py
-        fi;
+        trap - SIGINT               # Remove auxiliary file when complete
+        rm -f $1.py
     fi;
 }
 
