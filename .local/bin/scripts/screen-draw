@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Take a temporal screenshot
+screenshots_dir="/home/adrian/Images/Screenshots"
+screenshot_name=$screenshots_dir/$(printf 'screenshot %s.png' "$(date +'%G-%m-%d (%T)')")
+
+# Take screenshot and show notification
+maim -u "$screenshot_name"
+
+# Run satty to anotate
+satty -f "$screenshot_name" -o "$screenshot_name"

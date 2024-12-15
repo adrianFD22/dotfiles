@@ -6,7 +6,7 @@
 # On startup settings
 #amixer set Master mute
 #pulsemixer --set-volume 50
-xdotool mousemove 1365 767
+#xdotool mousemove 1365 767     # Hide cursor
 xrdb ~/.Xresources
 
 # Set xnotify FIFO
