@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Toggle the recording of the screen using ffcast (from the AUR)
+
 format="BG:#cc0000\tSEC:1\t"
 
 if [ "$(pgrep toggle-record | wc -l)" -ge 3 ]; then

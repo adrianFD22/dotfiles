@@ -480,7 +480,7 @@ _ dash, line, low dash, low line, underdash, underline
 💟 heart, heart decoration
 ❣ exclamation, heart exclamation, mark, punctuation
 💔 break, broken, broken heart
-❤ heart, red heart
+❤ heart, red heart,
 🩷 cute, heart, like, love, pink <!-- 1FA77 -->
 🧡 orange, orange heart
 💛 yellow, yellow heart
@@ -1687,24 +1687,24 @@ _ dash, line, low dash, low line, underdash, underline
 ㊙ “secret”, ideograph, Japanese, Japanese “secret” button, 秘
 🈺 “open for business”, ideograph, Japanese, Japanese “open for business” button, 営
 🈵 “no vacancy”, ideograph, Japanese, Japanese “no vacancy” button, 満
-🔴 circle, geometric, red
-🟠 circle, orange
-🟡 circle, yellow
-🟢 circle, green
-🔵 blue, circle, geometric
-🟣 circle, purple
-🟤 brown, circle
-⚫ black circle, circle, geometric
-⚪ circle, geometric, white circle
-🟥 red, square
-🟧 orange, square
-🟨 square, yellow
-🟩 green, square
-🟦 blue, square
-🟪 purple, square
-🟫 brown, square
-⬛ black large square, geometric, square
-⬜ geometric, square, white large square
+🔴 circle, geometric, red, color
+🟠 circle, orange, color
+🟡 circle, yellow, color
+🟢 circle, green, color
+🔵 blue, circle, geometric, color
+🟣 circle, purple, color
+🟤 brown, circle, color
+⚫ black circle, circle, geometric, color
+⚪ circle, geometric, white circle, color
+🟥 red, square, color
+🟧 orange, square, color
+🟨 square, yellow, color
+🟩 green, square, color
+🟦 blue, square, color
+🟪 purple, square, color
+🟫 brown, square, color
+⬛ black large square, geometric, square, color
+⬜ geometric, square, white large square, color
 ◼ black medium square, geometric, square
 ◻ geometric, square, white medium square
 ◾ black medium-small square, geometric, square
