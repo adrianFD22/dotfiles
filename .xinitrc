@@ -22,6 +22,6 @@ xset r rate 300 60
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/isaac.png"
+feh --no-fehbg --no-xinerama --bg-center "/home/adrian/Images/Wallpapers/shrek.png"
 
 exec dwm

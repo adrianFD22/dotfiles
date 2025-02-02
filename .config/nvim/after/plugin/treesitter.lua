@@ -1,6 +1,6 @@
 
 -- GAP parser
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+--[[ local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.gap = {
 	install_info = {
 		url = "~/Personal/Projects/tree-sitter-gap", -- local path or git repo
@@ -11,7 +11,7 @@ parser_config.gap = {
 		requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
 	},
 	filetype = "gap" -- if filetype does not match the parser name
-}
+} ]]--
 
 -- General configs
 require'nvim-treesitter.configs'.setup {
