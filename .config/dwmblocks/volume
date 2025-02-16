@@ -1,9 +1,9 @@
 #!/bin/sh
 
-vol=$(pulsemixer --get-volume | cut -d" " -f1)
-mute=$(pulsemixer --get-mute)
+vol=$(pulseaudio-ctl full-status | cut -d" " -f1)
+mute=$(pulseaudio-ctl full-status | cut -d" " -f2)
 
-if [ $mute == 1 ]; then
+if [ "$mute" == "yes" ]; then
     printf "%s🔇" $vol
 
 else

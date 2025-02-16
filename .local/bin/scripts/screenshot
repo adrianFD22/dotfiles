@@ -9,6 +9,6 @@ screenshot_name=$(printf 'screenshot %s.png' "$(date +'%G-%m-%d (%T)')")
 [ -z "$1" ] && flag_selection="-s"
 
 # Take screenshot and show notification
-if maim $flag_selection "$screenshots_dir/$screenshot_name"; then
+if maim $flag_selection -u "$screenshots_dir/$screenshot_name"; then
     printf '%s' "$screenshot_name" > "$XNOTIFY_FIFO"
 fi
