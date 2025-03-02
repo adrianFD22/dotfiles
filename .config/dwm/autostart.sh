@@ -15,6 +15,10 @@ bluetoothctl power off
 # Clean qutebrowser cache
 clean-qutebrowser-cache
 
+# Volume
+pactl set-sink-mute @DEFAULT_SINK@ 1    # Mute
+pulseaudio-ctl set 50                   # Set volume to 50%
+
 # Set default monitor configuration
 #autorandr default
 
