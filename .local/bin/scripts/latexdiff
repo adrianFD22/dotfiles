@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get differences between two tex files using latexdiff-git.
-# Usage: latexdiff file1.tex file2.tex
+# Usage: latexdiff old_file.tex new_file.tex
 
 # In case of wrong number of arguments
 if [ "$#" != 2 ]; then
