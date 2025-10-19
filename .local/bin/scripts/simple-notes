@@ -46,6 +46,9 @@ def get_daily_note():
     note_path = notes_dir + "/" + str(today.date()) + ".md"
 
     # Create note if does not exist
+    base_date    = datetime(1900, 1, 1)
+    today_number = (today - base_date).days
+
     if not path.isfile(note_path):
         # Get template
         template_path = config_dir + profile + "/" + str(today.weekday()) + ".md"
@@ -54,14 +57,11 @@ def get_daily_note():
             note_content = f.read()
         pass
 
-        note_content = "\n# Schedule\n\n" + note_content
+        note_content = "\n# Schedule (" + str(73 - today_number + 45899) + ")\n\n" + note_content
         today_events = []
 
         # Get cyclic events
         with open(config_dir + '/' + cyclic_events_file, 'r') as f:
-            base_date    = datetime(1900, 1, 1)
-            today_number = (today - base_date).days
-
             spamreader = csv.reader(f)
             for row in spamreader:
                 modulus = int(row[0])

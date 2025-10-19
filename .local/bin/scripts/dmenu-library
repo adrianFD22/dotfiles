@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Select a pdf file from library and open it
+
+library_dir="/home/adrian/Library"
+
+sel_file=$(fd -e pdf --strip-cwd-prefix --base-directory "$library_dir" | dmenu -l 20 -i -p "Open:")
+
+if [ -f "$library_dir/$sel_file" ]; then
+    xdg-open "$library_dir/$sel_file"
+fi

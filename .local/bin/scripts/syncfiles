@@ -1,12 +1,14 @@
 #!/bin/sh
 
 notes_dir="
-    /home/adrian/Notes
-    /home/adrian/Work/LaTeX
-    /home/adrian/Images/Albums
-    /home/adrian/Documents
+    Documents
+    Images
+    Library
+    Notes
+    Work
 "
 
 for curr_dir in $notes_dir; do
-    rclone -v sync --links "$curr_dir" "adrianDropbox:$curr_dir"
+    #rclone -v sync --links "$curr_dir" "adrianDropbox:$curr_dir"
+    rclone -v sync --links "/home/adrian/$curr_dir" "adrianGoogleDrive:home_backup/$curr_dir"
 done
