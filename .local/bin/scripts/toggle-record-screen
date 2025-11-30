@@ -11,11 +11,18 @@ if [ "$(pgrep toggle-record | wc -l)" -ge 3 ]; then
     # End notification
     sleep 0.3
     echo -e "${format}End recording" > $XNOTIFY_FIFO
+    sleep 1
+
+    file_name="recording-$(date +'%G-%m-%d (%T)').mp4"
+
+    ffmpeg -i "curr_recording.mp4" -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p -ac 2 "$file_name"  # Convert format to be compatible with Whatsapp
+    rm "curr_recording.mp4"
+
 else
     # Start notification
     echo -e "${format}Record screen" > $XNOTIFY_FIFO
     sleep 1
 
     # Record screen
-    ffcast rec "recording $(date +'%G-%m-%d (%T)').mp4"
+    ffcast rec "curr_recording.mp4"
 fi;

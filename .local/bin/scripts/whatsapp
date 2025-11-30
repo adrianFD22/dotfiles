@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# https://bbs.archlinux.org/viewtopic.php?id=248480
+
+appclass="Whatsapp"
+
+#find  window id
+wid=`xdotool search --name "${appclass}"`
+#if it is active app toggle its visibility
+if [ $? -eq 0 ]; then
+        #it is active but is it visible?
+        widvisible=`xdotool search --onlyvisible --name "${appclass}"`
+        if [ $? -eq 0 ]; then
+                #hide window
+                xdotool windowunmap $wid
+        else
+                #show window
+                xdotool windowmap $wid
+        fi
+else
+        #start app
+        firefox --new-window web.whatsapp.com &
+        sleep 1
+        wid=$(xdotool search --name "${appclass}")
+        #xdotool windowstate --add ABOVE "$wid"
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Select a random pdf file from library and open it
+
+library_dir="/home/adrian/Library/Books/"
+
+sel_file=$(fd -e pdf --base-directory "$library_dir" | shuf -n 1)
+xdg-open "$library_dir/$sel_file"
+
