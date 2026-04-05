@@ -119,8 +119,8 @@ sunday-routine () {
     paccache -rk 3
 
     # Recompile zathura
-    echo; echo "> Recompile zathura"; echo
-    recompile-zathura
+    #echo; echo "> Recompile zathura"; echo
+    #recompile-zathura
 
     # Update neovim plugins
     echo; echo "> Update neovim plugins"; echo
