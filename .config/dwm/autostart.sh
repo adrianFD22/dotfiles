@@ -4,7 +4,9 @@
 dwmblocks &
 
 # Open daily notes
-terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_events.csv" &
+#terminal-init "nvim $(simple-notes get note) ~/.config/simple-notes/punctual_events.csv" &
+terminal-init "mycal" &
+terminal-init "nvim $(/home/adrian/Notes/.mycal/simple-notes.sh)" &
 
 # Disable bluetooth
 bluetoothctl power off

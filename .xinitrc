@@ -30,6 +30,10 @@ xmodmap -e "keycode  13 = 4 dollar 4 dollar dead_caron dollar asciitilde"
 
 # Wallpaper
 # nitrogen --set-zoom-fill ~/Images/Wallpapers/space1.png
-feh --no-fehbg --no-xinerama --bg-fill "/home/adrian/Images/Wallpapers/nebula2.jpeg"
+feh --no-fehbg --no-xinerama --bg-fill "/home/adrian/Images/Wallpapers/rick_morty_snake.jpg"
+
+# In order to allow firefox to show file picker
+# https://www.reddit.com/r/archlinux/comments/1ppn6ff/firefox_not_opening_system_dialogs_after_latest/
+dbus-update-activation-environment --systemd DISPLAY
 
 exec dwm
